@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown, Mail, MapPin, Phone, FileText, Users, ArrowRight } from 'lucide-react';
 
@@ -10,6 +11,8 @@ export default function HomePage() {
   });
 return (
  <div className="min-h-screen bg-white">
+
+
       {/* Hero Section */}
       <section id="accueil" className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-900 via-blue-700 to-cyan-600 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
@@ -48,6 +51,5 @@ return (
       </section>
 </div>
 )
-
 }
 
