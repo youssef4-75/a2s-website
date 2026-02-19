@@ -213,26 +213,35 @@ export default function A2SWebsite() {
             Des solutions professionnelles adaptées à vos besoins
           </p>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <div 
-                key={index} 
-                className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
-              >
-                <div className="aspect-video overflow-hidden">
-                  <img 
-                    src={service.image} 
-                    alt={service.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col justify-end p-6">
-                  <h3 className="text-2xl font-bold text-white mb-2">{service.title}</h3>
-                  <p className="text-blue-200 text-sm">{service.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+         <div className="flex flex-wrap justify-center gap-8 max-w-6xl mx-auto px-4">
+  {services.map((service, index) => (
+    <div
+      key={index}
+      className="w-full sm:w-[48%] lg:w-[30%]
+                 group relative overflow-hidden rounded-2xl
+                 shadow-lg hover:shadow-2xl
+                 transition-all duration-300
+                 transform hover:-translate-y-2"
+    >
+      <div className="aspect-video overflow-hidden">
+        <img
+          src={service.image}
+          alt={service.title}
+          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+        />
+      </div>
+
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col justify-end p-6">
+        <h3 className="text-2xl font-bold text-white mb-2">
+          {service.title}
+        </h3>
+        <p className="text-blue-200 text-sm">
+          {service.description}
+        </p>
+      </div>
+    </div>
+  ))}
+</div>
         </div>
       </section>
 
