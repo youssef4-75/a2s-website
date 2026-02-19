@@ -1,1 +1,165 @@
-//This is the contactpage of the application
+import React, { useState } from 'react';
+import { Mail, Phone, MapPin, Star } from 'lucide-react';
+
+export default function ContactPage() {
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        phone: '',
+        message: ''
+    });
+
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        });
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const bodyContent = `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\nMessage:\n${formData.message}`;
+        const mailtoLink = `mailto:a2s.bureau@gmail.com?subject=${encodeURIComponent("Nouveau message contact")}&body=${encodeURIComponent(bodyContent)}`;
+        window.location.href = mailtoLink;
+    };
+
+    return (
+        <div className="bg-white font-sans text-[#111827] antialiased transition-colors duration-200 min-h-screen flex flex-col">
+
+            {/* Header Placeholder */}
+            <div style={{ height: '80px' }}></div>
+
+            <main className="max-w-7xl mx-auto px-6 md:px-12 pb-24 flex-grow w-full">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+
+                    {/* Left Column: Text & Info */}
+                    <div className="space-y-8 pt-4">
+                        <div className="space-y-4">
+                            <span className="inline-block py-1 px-3 rounded-full bg-blue-50 text-[#1e54c6] text-xs font-bold uppercase tracking-wider">
+                                Contact Us
+                            </span>
+                            <h1 className="text-4xl md:text-5xl font-bold text-[#111827] leading-tight">
+                                A2S Junior Entreprise
+                            </h1>
+                            <p className="text-lg text-[#6b7280] leading-relaxed">
+                                A2S (Actions Services et Solutions) est la Junior-Entreprise de l'INPT. Nous accompagnons les professionnels dans leurs projets informatiques, télécoms et technologiques en mettant à leur disposition l'expertise de nos élèves-ingénieurs. N'hésitez pas à nous contacter pour toute demande de devis ou de collaboration.
+                            </p>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div className="flex items-start space-x-3">
+                                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-[#1e54c6]">
+                                    <Mail size={20} />
+                                </div>
+                                <div>
+                                    <h3 className="font-semibold text-[#111827]">Email</h3>
+                                    <p className="text-sm text-[#6b7280]">contact@a2s-inpt.ma</p>
+                                </div>
+                            </div>
+                            <div className="flex items-start space-x-3">
+                                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-[#1e54c6]">
+                                    <Phone size={20} />
+                                </div>
+                                <div>
+                                    <h3 className="font-semibold text-[#111827]">Téléphone</h3>
+                                    <p className="text-sm text-[#6b7280]">+212 537 777 777</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Map Iframe Card */}
+                        <div className="relative w-full h-80 bg-gray-200 rounded-2xl overflow-hidden shadow-[0_4px_20px_-2px_rgba(0,0,0,0.05)] border border-gray-100 group">
+                            <iframe
+                                title="INPT Map Location"
+                                src="https://maps.google.com/maps?q=inpt&t=m&z=15&output=embed&iwloc=near"
+                                className="w-full h-full border-0 filter grayscale-[20%] contrast-[1.1] opacity-90 group-hover:opacity-100 transition-opacity duration-300"
+                                allowFullScreen=""
+                                loading="lazy"
+                                referrerPolicy="no-referrer-when-downgrade"
+                            ></iframe>
+                            <div className="absolute top-4 left-4 bg-white p-4 rounded-lg shadow-md max-w-xs border border-gray-100 z-10 w-fit">
+                                <h4 className="font-bold text-sm text-[#111827] mb-2">Institut National des Postes et Télécommunications</h4>
+                                <a className="text-xs text-[#1e54c6] font-medium hover:underline" href="https://maps.google.com/?q=INPT+Rabat" target="_blank" rel="noreferrer">View larger map</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Right Column: Form */}
+                    <div className="bg-white p-8 md:p-10 rounded-2xl shadow-[0_4px_20px_-2px_rgba(0,0,0,0.05)] border border-gray-100">
+                        <form onSubmit={handleSubmit} className="space-y-6">
+                            <div className="space-y-2">
+                                <label className="block text-sm font-medium text-[#111827]" htmlFor="name">
+                                    Your Name <span className="text-red-500">*</span>
+                                </label>
+                                <input
+                                    className="w-full px-4 py-3 rounded-lg bg-white border border-[#e5e7eb] focus:border-[#1e54c6] focus:ring-2 focus:ring-[#1e54c6]/20 outline-none transition-all placeholder-gray-400 text-[#111827]"
+                                    id="name"
+                                    name="name"
+                                    placeholder="Name"
+                                    type="text"
+                                    value={formData.name}
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </div>
+                            <div className="space-y-2">
+                                <label className="block text-sm font-medium text-[#111827]" htmlFor="email">
+                                    Email <span className="text-red-500">*</span>
+                                </label>
+                                <input
+                                    className="w-full px-4 py-3 rounded-lg bg-white border border-[#e5e7eb] focus:border-[#1e54c6] focus:ring-2 focus:ring-[#1e54c6]/20 outline-none transition-all placeholder-gray-400 text-[#111827]"
+                                    id="email"
+                                    name="email"
+                                    placeholder="Email"
+                                    type="email"
+                                    value={formData.email}
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </div>
+                            <div className="space-y-2">
+                                <label className="block text-sm font-medium text-[#111827]" htmlFor="phone">
+                                    Phone Number <span className="text-red-500">*</span>
+                                </label>
+                                <input
+                                    className="w-full px-4 py-3 rounded-lg bg-white border border-[#e5e7eb] focus:border-[#1e54c6] focus:ring-2 focus:ring-[#1e54c6]/20 outline-none transition-all placeholder-gray-400 text-[#111827]"
+                                    id="phone"
+                                    name="phone"
+                                    placeholder="Phone"
+                                    type="tel"
+                                    value={formData.phone}
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </div>
+                            <div className="space-y-2">
+                                <label className="block text-sm font-medium text-[#111827]" htmlFor="message">
+                                    Description <span className="text-red-500">*</span>
+                                </label>
+                                <textarea
+                                    className="w-full px-4 py-3 rounded-lg bg-white border border-[#e5e7eb] focus:border-[#1e54c6] focus:ring-2 focus:ring-[#1e54c6]/20 outline-none transition-all resize-none placeholder-gray-400 text-[#111827]"
+                                    id="message"
+                                    name="message"
+                                    placeholder="Message"
+                                    rows="4"
+                                    value={formData.message}
+                                    onChange={handleChange}
+                                    required
+                                ></textarea>
+                            </div>
+                            <button className="w-full py-4 px-6 bg-[#1e54c6] hover:bg-[#16419e] text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#1e54c6]" type="submit">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </main>
+
+            <footer className="border-t border-gray-200 bg-white py-8 w-full">
+                <div className="max-w-7xl mx-auto px-6 text-center text-sm text-[#6b7280]">
+                    © 2024 Association Avenir d'Ingénieur en Services et Solutions (A2S) - INPT. Tous droits réservés.
+                </div>
+            </footer>
+        </div>
+    );
+}
