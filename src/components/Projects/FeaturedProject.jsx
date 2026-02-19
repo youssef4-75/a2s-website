@@ -56,7 +56,7 @@ export default function FeaturedProject({ image = '', title = '', category = '',
                             <span className="author-name">Équipe A2S</span>
                         </div>
 
-                        <a href={link || "#"} className="arrow-btn">
+                        <a href={link || "#"} className="arrow-btn" target="_blank" rel="noopener noreferrer">
                             <ArrowRight size={20} />
                         </a>
                     </div>

@@ -42,7 +42,7 @@ export default function ProjectCard({ image = '', title = '', category = '', dat
                     <span className="read-case-study">
                         plus d'information
                     </span>
-                    <a href={link || "#"} className="card-arrow">
+                    <a href={link || "#"} className="card-arrow" target="_blank" rel="noopener noreferrer">
                         <ArrowRight size={18} />
                     </a>
                 </div>
