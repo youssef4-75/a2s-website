@@ -84,9 +84,11 @@ export default function A2SWebsite() {
         </div>
 
         <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
-          <h1 className="text-6xl md:text-8xl font-bold text-white mb-6 animate-fade-in">
-            A2S
-          </h1>
+          <img 
+          src="/Logo A2S.png"
+          alt="A2S Logo" 
+          className="mx-auto mb-6 w-40 h-40"
+/>
           <h2 className="text-2xl md:text-4xl text-blue-100 mb-8 font-light">
             Junior Entreprise
           </h2>

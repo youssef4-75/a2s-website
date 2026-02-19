@@ -5,6 +5,7 @@ import A2SWebsite from '../App';
 import EventsPage from '../pages/EventsPage';
 import ContactPage from '../pages/ContactPage';
 import ProjectsPage from '../pages/ProjectsPage';
+import HomePage from '../pages/HomePage';
 
 export default function AppRoutes() {
   return (
@@ -18,6 +19,9 @@ export default function AppRoutes() {
           
           {/* Events Route */}
           <Route path="events" element={<EventsPage />} />
+          
+           {/* Homepage Route */}
+          <Route path="home" element={<HomePage/>} />
           
           {/* Contact Route */}
           <Route path="contact" element={<ContactPage />} />
