@@ -4,23 +4,14 @@ import bootcampIMG from '../public/assets/bootcamp.png'
 import CNJEMIMG from '../public/assets/CNJEM.png'
 import MentoringIMG from '../public/assets/Mentoring.png'
 
+
 export default function A2SWebsite() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const [formData, setFormData] = useState({
     nom: '',
     email: '',
     sujet: '',
     message: ''
   });
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const services = [
     {
@@ -84,56 +75,6 @@ export default function A2SWebsite() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white shadow-lg' : 'bg-transparent'}`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
-            <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">A2S</span>
-              </div>
-              <div>
-                <h1 className={`font-bold text-xl ${scrolled ? 'text-gray-900' : 'text-white'}`}>A2S</h1>
-                <p className={`text-xs ${scrolled ? 'text-gray-600' : 'text-blue-100'}`}>Junior Entreprise</p>
-              </div>
-            </div>
-
-            {/* Desktop Menu */}
-            <div className="hidden md:flex items-center space-x-8">
-              <a href="#accueil" className={`transition-colors ${scrolled ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-blue-200'}`}>Accueil</a>
-              <a href="#apropos" className={`transition-colors ${scrolled ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-blue-200'}`}>À Propos</a>
-              <a href="#services" className={`transition-colors ${scrolled ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-blue-200'}`}>Services</a>
-              <a href="#evenements" className={`transition-colors ${scrolled ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-blue-200'}`}>Événements</a>
-              <a href="#contact" className={`transition-colors ${scrolled ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-blue-200'}`}>Contact</a>
-              <a href="#contact" className="bg-gradient-to-r from-blue-600 to-cyan-500 text-white px-6 py-2 rounded-full hover:shadow-lg transition-all transform hover:scale-105">
-                Avoir un Devis
-              </a>
-            </div>
-
-            {/* Mobile Menu Button */}
-            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden">
-              {isMenuOpen ? <X className={scrolled ? 'text-gray-900' : 'text-white'} /> : <Menu className={scrolled ? 'text-gray-900' : 'text-white'} />}
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden bg-white border-t">
-            <div className="px-4 py-4 space-y-3">
-              <a href="#accueil" className="block text-gray-700 hover:text-blue-600">Accueil</a>
-              <a href="#apropos" className="block text-gray-700 hover:text-blue-600">À Propos</a>
-              <a href="#services" className="block text-gray-700 hover:text-blue-600">Services</a>
-              <a href="#evenements" className="block text-gray-700 hover:text-blue-600">Événements</a>
-              <a href="#contact" className="block text-gray-700 hover:text-blue-600">Contact</a>
-              <a href="#contact" className="block bg-blue-600 text-white px-6 py-2 rounded-full text-center">
-                Avoir un Devis
-              </a>
-            </div>
-          </div>
-        )}
-      </nav>
-
       {/* Hero Section */}
       <section id="accueil" className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-900 via-blue-700 to-cyan-600 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
@@ -373,14 +314,6 @@ export default function A2SWebsite() {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-8 px-4">
-        <div className="max-w-7xl mx-auto text-center">
-          <p className="text-lg font-semibold">© 2023-2024 A2S</p>
-          <p className="text-gray-400 mt-2">Junior Entreprise - INPT</p>
-        </div>
-      </footer>
     </div>
   );
 }
