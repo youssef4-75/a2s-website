@@ -1,0 +1,25 @@
+:root {
+    --primary-color-light-blue: #007bff;
+    --secondary-color-white-dark: #F8FAFC;
+    --secondary-blue-blue-dark: #1E40AF;
+    --text-color-dark: #0F172A;
+    --text-color-light: #ffffff;
+}
+
+main {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.category {
+    padding: 5px 15px;
+    color:var(--text-color-light) ;
+    background-color: #007bff;
+    
+    border-radius:20px;
+}
