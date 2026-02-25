@@ -85,7 +85,7 @@ export default function A2SWebsite() {
 
         <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
           <img 
-          src="/Logo A2S.png"
+          src="/assets/a2s logo.png"
           alt="A2S Logo" 
           className="mx-auto mb-6 w-40 h-40"
 />
