@@ -19,26 +19,27 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           
-          {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3">
-            <img src="public\Logo A2S.png" alt="A2S Logo" className="w-12 h-12 object-contain" />
+          {/* Logo (renvoie aussi en haut de la page) */}
+          <a href="/#accueil" className="flex items-center space-x-3">
+            <img src="/assets/a2s logo.png" alt="A2S Logo" className="w-12 h-12 object-contain" />
             <div>
               <h1 className={`font-bold text-xl ${scrolled ? 'text-gray-900' : 'text-white'}`}>A2S</h1>
               <p className={`text-xs ${scrolled ? 'text-gray-600' : 'text-blue-100'}`}>Junior Entreprise</p>
             </div>
-          </Link>
+          </a>
 
           {/* Desktop Menu  */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link to="/" className={`transition-colors ${scrolled ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-blue-200'}`}>
+            <a href="/#accueil" className={`transition-colors ${scrolled ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-blue-200'}`}>
               Accueil
-            </Link>
-            <Link to="/about" className={`transition-colors ${scrolled ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-blue-200'}`}>
+            </a>
+            
+            <a href="/#apropos" className={`transition-colors ${scrolled ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-blue-200'}`}>
               À Propos
-            </Link>
-            <Link to="/services" className={`transition-colors ${scrolled ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-blue-200'}`}>
+            </a>
+            <a href="/#services" className={`transition-colors ${scrolled ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-blue-200'}`}>
               Services
-            </Link>
+            </a>
             
             <Link 
               to="/events" 
@@ -66,10 +67,11 @@ export default function Header() {
       {isMenuOpen && (
         <div className="md:hidden bg-white border-t">
           <div className="px-4 py-4 space-y-3">
-            <Link to="/" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600">Accueil</Link>
+            <a href="/#accueil" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600">Accueil</a>
+            <a href="/#apropos" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600">À Propos</a>
+            <a href="/#services" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600">Services</a>
+            
             <Link to="/events" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600">Événements</Link>
-            <Link to="/about" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600">À Propos</Link>
-            <Link to="/services" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600">Services</Link>
             <Link to="/contact" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600">Contact</Link>
           </div>
         </div>

@@ -16,12 +16,13 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Quick Links - On utilise Link pour la navigation */}
+          {/* Quick Links */}
           <div>
             <h4 className="text-lg font-semibold mb-4 text-blue-400">Navigation</h4>
             <ul className="space-y-2 text-gray-400">
-              <li><Link to="/" className="hover:text-white transition-colors">Accueil</Link></li>
-              <li><Link to="/about" className="hover:text-white transition-colors">À Propos</Link></li>
+              <li><a href="/#accueil" className="hover:text-white transition-colors">Accueil</a></li>
+              <li><a href="/#apropos" className="hover:text-white transition-colors">À Propos</a></li>
+              <li><a href="/#services" className="hover:text-white transition-colors">Services</a></li>
               <li><Link to="/events" className="hover:text-white transition-colors">Événements</Link></li>
               <li><Link to="/contact" className="hover:text-white transition-colors">Contact</Link></li>
             </ul>
