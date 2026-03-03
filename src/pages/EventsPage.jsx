@@ -3,7 +3,7 @@ import { events } from '../data/events';
 
 export default function EventsPage() {
   return (
-    <section id="evenements" className="py-20 px-4 bg-gradient-to-br from-gray-50 to-blue-50 min-h-screen">
+    <section id="evenements" className="pt-28 pb-20 px-4 bg-gradient-to-br from-gray-50 to-blue-50 min-h-screen">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-4">
           Nos Événements
