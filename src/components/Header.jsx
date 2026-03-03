@@ -19,9 +19,9 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           
-          {/* Logo (renvoie aussi en haut de la page) */}
+          {/* Logo  */}
           <a href="/#accueil" className="flex items-center space-x-3">
-            <img src="/assets/a2s logo.png" alt="A2S Logo" className="w-12 h-12 object-contain" />
+            <img src="/assets/Logo A2S.png" alt="A2S Logo" className="w-12 h-12 object-contain" />
             <div>
               <h1 className={`font-bold text-xl ${scrolled ? 'text-gray-900' : 'text-white'}`}>A2S</h1>
               <p className={`text-xs ${scrolled ? 'text-gray-600' : 'text-blue-100'}`}>Junior Entreprise</p>
@@ -57,7 +57,11 @@ export default function Header() {
           </div>
 
           {/* Mobile Menu Button */}
-          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden">
+          <button 
+            onClick={() => setIsMenuOpen(!isMenuOpen)} 
+            className="md:hidden"
+            aria-label={isMenuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
+          >
             {isMenuOpen ? <X className={scrolled ? 'text-gray-900' : 'text-white'} /> : <Menu className={scrolled ? 'text-gray-900' : 'text-white'} />}
           </button>
         </div>

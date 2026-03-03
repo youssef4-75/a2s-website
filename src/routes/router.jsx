@@ -6,6 +6,7 @@ import ContactPage from '../pages/ContactPage';
 import ProjectsPage from '../pages/ProjectsPage';
 import HomePage from '../pages/HomePage';
 import Registration from '../pages/JoinUs';
+import NotFoundPage from '../pages/NotFoundPage';
 
 export default function AppRoutes() {
   return (
@@ -23,6 +24,7 @@ export default function AppRoutes() {
           <Route path="projects" element={<ProjectsPage />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="join-us" element={<Registration />} />
+          <Route path="*" element={<NotFoundPage />} />
 
         </Route>
       </Routes>

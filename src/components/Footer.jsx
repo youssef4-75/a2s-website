@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { COMPANY_NAME, COMPANY_ADDRESS } from '../constants';
 
 export default function Footer() {
   return (
@@ -9,7 +10,7 @@ export default function Footer() {
           {/* Info Section */}
           <div>
             <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
-              A2S Junior Entreprise
+              {COMPANY_NAME}
             </h3>
             <p className="text-gray-400 leading-relaxed">
               L'excellence au service de l'innovation. Une équipe d'étudiants de l'INPT dédiée à vos projets.
@@ -31,13 +32,13 @@ export default function Footer() {
           {/* Contact Info */}
           <div>
             <h4 className="text-lg font-semibold mb-4 text-blue-400">Contact</h4>
-            <p className="text-gray-400 italic">INPT, Avenue Allal El Fassi, Madinat Al Irfane, Rabat</p>
+            <p className="text-gray-400 italic">{COMPANY_ADDRESS}</p>
           </div>
         </div>
 
         <div className="border-t border-gray-800 pt-8 text-center text-gray-500">
           <p className="text-sm">
-            © {new Date().getFullYear()} A2S - Junior Entreprise INPT. Tous droits réservés.
+            © {new Date().getFullYear()} {COMPANY_NAME}. Tous droits réservés.
           </p>
         </div>
       </div>
