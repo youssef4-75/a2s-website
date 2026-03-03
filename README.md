@@ -1,16 +1,43 @@
-# React + Vite
+# A2S Junior Entreprise Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
 
-Currently, two official plugins are available:
+A modern, fully responsive web platform built for the **A2S Junior Entreprise**. This website serves as the digital storefront for the association, showcasing its services, projects, team, and upcoming events to potential clients and student members.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## React Compiler
+* **Dynamic Navigation:** Responsive navigation header with a mobile-friendly menu.
+* **Service Showcase:** Detailed pages outlining the professional offerings of the Junior Entreprise.
+* **Event Management:** Dedicated section to list and highlight upcoming association events.
+* **Project Portfolio:** A showcase of past projects and achievements.
+* **Interactive Forms:** Includes a user registration/sign-up form and a contact inquiry form.
+* **About Us Section:** Highlights the mission, vision, and team behind A2S.
+* **Smooth UX:** Built-in scroll-to-top functionality and a custom 404 error page.
+* **Fully Responsive:** Styled with Tailwind CSS to ensure a perfect layout across all device sizes (mobile, tablet, desktop).
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
 
-## Expanding the ESLint configuration
+* **Frontend Framework:** React
+* **Build Tool:** Vite (for fast, optimized development)
+* **Styling:** Tailwind CSS (Utility-first CSS framework)
+* **Routing:** React Router DOM
+* **Icons:** Lucide React (or your chosen icon library)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📂 Project Structure
+
+```text
+a2s-website/
+├── public/
+│   └── assets/            # Static assets (images, logos)
+├── src/
+│   ├── components/        # Reusable UI components (Header, Footer, Layout, etc.)
+│   ├── pages/             # Page views (Home, About, Services, Events, Contact, etc.)
+│   ├── data/              # Local data files for events, projects, and services
+│   ├── routes/            # Application routing configuration
+│   ├── App.jsx            # Main application component
+│   └── main.jsx           # Application entry point
+├── tailwind.config.js     # Tailwind design system configuration
+└── package.json           # Dependencies and scripts
