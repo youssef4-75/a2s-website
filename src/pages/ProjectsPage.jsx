@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { services } from '../data/services';
 
 export default function ProjectsPage() {
@@ -14,10 +15,11 @@ export default function ProjectsPage() {
           </p>
 
           <div className="flex flex-wrap justify-center gap-8 max-w-6xl mx-auto px-4">
-            {services.map((service, index) => (
-              <div
-                key={index}
-                className="w-full sm:w-[48%] lg:w-[30%] group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+            {services.map((service) => (
+              <Link
+                to={`/services/${service.id}`}
+                key={service.id}
+                className="w-full sm:w-[48%] lg:w-[30%] group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer"
               >
                 <div className="aspect-video overflow-hidden">
                   <img
@@ -34,7 +36,7 @@ export default function ProjectsPage() {
                     {service.description}
                   </p>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

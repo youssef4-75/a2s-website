@@ -99,13 +99,14 @@ export default function HomePage() {
 
           <div className="flex flex-wrap justify-center gap-8 max-w-6xl mx-auto px-4">
             {services.map((service, index) => (
-              <div
-                key={index}
+              <Link
+                to={`/services/${service.id}`}
+                key={service.id}
                 className="w-full sm:w-[48%] lg:w-[30%]
                            group relative overflow-hidden rounded-2xl
                            shadow-lg hover:shadow-2xl
                            transition-all duration-300
-                           transform hover:-translate-y-2"
+                           transform hover:-translate-y-2 cursor-pointer"
               >
                 <div className="aspect-video overflow-hidden">
                   <img
@@ -123,7 +124,7 @@ export default function HomePage() {
                     {service.description}
                   </p>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
