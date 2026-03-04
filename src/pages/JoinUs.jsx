@@ -75,11 +75,6 @@ export default function JoinUs() {
                   <div className="row g-3">
 
                     <div className="col-md-6">
-                      <label className="form-label">Numéro Étudiant</label>
-                      <input type="text" className="form-control" />
-                    </div>
-
-                    <div className="col-md-6">
                       <label className="form-label">Filière</label>
                       <select className="form-select">
                         <option>AMOA</option>
