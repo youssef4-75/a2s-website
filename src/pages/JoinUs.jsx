@@ -73,12 +73,6 @@ export default function JoinUs() {
                   {/* INFORMATIONS ÉTUDIANT */}
                   <h5 className="fw-bold mb-3">Informations Étudiant</h5>
                   <div className="row g-3">
-
-                    <div className="col-md-6">
-                      <label className="form-label">Numéro Étudiant</label>
-                      <input type="text" className="form-control" />
-                    </div>
-
                     <div className="col-md-6">
                       <label className="form-label">Filière</label>
                       <select className="form-select">
