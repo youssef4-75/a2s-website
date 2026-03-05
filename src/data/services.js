@@ -1,10 +1,10 @@
 // Services/competencies data for the application
 export const services = [
   {
-    id: "marketing-digital",
-    title: "Marketing Digital",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=350&fit=crop",
-    description: "Stratégies digitales innovantes pour votre croissance"
+    id: "machine-learning",
+    title: "Machine Learning",
+    image: "https://images.unsplash.com/photo-1674027444485-cec3da58eef4?q=80&w=1332&auto=format&fit=crop",
+    description: "Solutions d'IA innovantes pour votre croissance"
   },
   {
     id: "developpement-web-mobile",

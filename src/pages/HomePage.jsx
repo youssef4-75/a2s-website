@@ -37,13 +37,15 @@ export default function HomePage() {
               Avoir un Devis
             </a>
 
-            <Link
-              to="/join-us"
+            <a
+              href="https://drive.google.com/file/d/175K5NsKZIkT6L8j9TGQApxSOL6S0_sos/view"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition-all transform hover:scale-105 flex items-center justify-center gap-2"
             >
-              <Users size={20} />
-              Rejoindre A2S
-            </Link>
+              <FileText size={20} />
+              Télécharger notre Plaquette
+            </a>
           </div>
         </div>
         <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
@@ -67,11 +69,11 @@ export default function HomePage() {
               <p className="text-xl font-semibold text-blue-600 mb-8">
                 #TrustTomorrowsEngineers 🦾
               </p>
-              <a href="https://drive.google.com/file/d/175K5NsKZIkT6L8j9TGQApxSOL6S0_sos/view" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition-all transform hover:scale-105">
-                <FileText size={20} />
-                Télécharger notre Plaquette Commerciale
+              <Link to="/team" className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition-all transform hover:scale-105">
+                <Users size={20} />
+                Découvrir notre Équipe de Bureau
                 <ArrowRight size={20} />
-              </a>
+              </Link>
             </div>
             <div className="order-1 md:order-2">
               <div className="relative">

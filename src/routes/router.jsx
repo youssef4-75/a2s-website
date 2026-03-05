@@ -9,6 +9,7 @@ import HomePage from '../pages/HomePage';
 import Registration from '../pages/JoinUs';
 import NotFoundPage from '../pages/NotFoundPage';
 import ServiceDetailPage from '../pages/ServiceDetailPage';
+import TeamPage from '../pages/TeamPage';
 
 export default function AppRoutes() {
   return (
@@ -28,6 +29,7 @@ export default function AppRoutes() {
           <Route path="services/:serviceId" element={<ServiceDetailPage />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="join-us" element={<Registration />} />
+          <Route path="team" element={<TeamPage />} />
           <Route path="*" element={<NotFoundPage />} />
 
         </Route>
