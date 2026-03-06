@@ -34,3 +34,5 @@ body {
 .animate-fade-in {
   animation: fade-in 1s ease-out;
 }
+
+/* Carousel infinite scroll - animation handled via requestAnimationFrame in HomePage.jsx */
