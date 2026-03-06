@@ -11,7 +11,7 @@ export default function HomePage() {
   const pausedRef = useRef(false);
 
   useEffect(() => {
-    const SPEED = 0.3;
+    const SPEED = 0.15;
     const upEl = upRef.current;
     const downEl = downRef.current;
     if (!upEl || !downEl) return;
