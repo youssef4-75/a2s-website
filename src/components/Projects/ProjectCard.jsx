@@ -1,8 +1,9 @@
 import React, { useRef } from 'react';
 import { ArrowRight, Calendar } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import useOnScreen from '../../hooks/useOnScreen';
 
-export default function ProjectCard({ image = '', title = '', category = '', date = '', description = '', link = '', className = '' }) {
+export default function ProjectCard({ image = '', title = '', category = '', date = '', description = '', slug = '', className = '' }) {
     const ref = useRef(null);
     const isVisible = useOnScreen(ref);
 
@@ -39,12 +40,12 @@ export default function ProjectCard({ image = '', title = '', category = '', dat
                 </p>
 
                 <div className="card-footer">
-                    <span className="read-case-study">
+                    <Link to={`/projects/${slug}`} className="read-case-study">
                         plus d'information
-                    </span>
-                    <a href={link || "#"} className="card-arrow" target="_blank" rel="noopener noreferrer">
+                    </Link>
+                    <Link to={`/projects/${slug}`} className="card-arrow">
                         <ArrowRight size={18} />
-                    </a>
+                    </Link>
                 </div>
             </div>
         </div>

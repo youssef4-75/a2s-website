@@ -1,11 +1,9 @@
 import React, { useRef } from 'react';
 import { ArrowRight, Calendar, Clock } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import useOnScreen from '../../hooks/useOnScreen';
 
-// CSS is imported in the parent page for simplicity, or could be here. 
-// Standard practice is often to import where used, but since we have one CSS file for "Projects", it's fine.
-
-export default function FeaturedProject({ image = '', title = '', category = '', date = '', description = '', link = '' }) {
+export default function FeaturedProject({ image = '', title = '', category = '', date = '', description = '', slug = '' }) {
     const ref = useRef(null);
     const isVisible = useOnScreen(ref);
 
@@ -56,9 +54,9 @@ export default function FeaturedProject({ image = '', title = '', category = '',
                             <span className="author-name">Équipe A2S</span>
                         </div>
 
-                        <a href={link || "#"} className="arrow-btn" target="_blank" rel="noopener noreferrer">
+                        <Link to={`/projects/${slug}`} className="arrow-btn">
                             <ArrowRight size={20} />
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </div>
