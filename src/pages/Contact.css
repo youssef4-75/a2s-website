@@ -1,0 +1,255 @@
+/* Contact.css */
+
+/* Using variables from Projects.css (re-declared here for scope/fallback) */
+:root {
+    --contact-bg-start: #0f172a;
+    /* Slate-900 */
+    --contact-bg-end: #1e3a8a;
+    /* Blue-900 */
+    --contact-accent: #38bdf8;
+    /* Sky-400 */
+    --contact-card-bg: #ffffff;
+}
+
+.contact-page {
+    min-height: 100vh;
+    /* Richer, deeper gradient matching the App's "premium" feel */
+    background: radial-gradient(circle at top right, #1e40af, transparent 40%),
+        linear-gradient(135deg, var(--contact-bg-start) 0%, var(--contact-bg-end) 100%);
+    font-family: 'Inter', system-ui, sans-serif;
+    color: white;
+    padding-bottom: 4rem;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Add a subtle background pattern or grain if possible, but for now just a nice gradient glow */
+
+.contact-container {
+    max-width: 75rem;
+    /* Slightly tighter for better focus */
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    position: relative;
+    z-index: 10;
+}
+
+@media (min-width: 1024px) {
+    .contact-container {
+        flex-direction: row;
+        align-items: flex-start;
+        /* Align top */
+        justify-content: space-between;
+        gap: 5rem;
+        padding-top: 4rem;
+    }
+}
+
+/* Left Column: Info */
+.contact-info {
+    flex: 1;
+    max-width: 550px;
+}
+
+.contact-title {
+    font-size: 3rem;
+    /* Larger */
+    font-weight: 800;
+    margin-bottom: 1rem;
+    background: linear-gradient(to right, #fff, #bfdbfe);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.1;
+}
+
+.contact-subtitle {
+    font-size: 1.25rem;
+    color: #94a3b8;
+    /* Slate-400 */
+    margin-bottom: 3.5rem;
+    font-weight: 400;
+    max-width: 90%;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    margin-bottom: 3.5rem;
+}
+
+.detail-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+}
+
+.detail-icon-box {
+    background-color: rgba(56, 189, 248, 0.1);
+    /* Sky-400 at 10% */
+    padding: 0.75rem;
+    border-radius: 12px;
+    color: var(--contact-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s;
+}
+
+.detail-item:hover .detail-icon-box {
+    transform: scale(1.1) rotate(5deg);
+    background-color: rgba(56, 189, 248, 0.2);
+}
+
+.detail-text h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.25rem;
+}
+
+.detail-text p {
+    color: #cbd5e1;
+    /* Slate-300 */
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+.contact-map-wrapper {
+    width: 100%;
+    height: 280px;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+    border: 4px solid rgba(255, 255, 255, 0.1);
+    transition: border-color 0.3s;
+}
+
+.contact-map-wrapper:hover {
+    border-color: rgba(56, 189, 248, 0.3);
+}
+
+.contact-map-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    filter: grayscale(20%) contrast(1.1);
+    /* Slightly stylish map */
+}
+
+/* Right Column: Form */
+.contact-form-card {
+    flex: 1;
+    background-color: var(--contact-card-bg);
+    padding: 2.5rem;
+    border-radius: 2rem;
+    color: #0f172a;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    /* Deep shadow to pop off dark bg */
+    max-width: 550px;
+    width: 100%;
+    position: relative;
+}
+
+/* Decorative backdrop blur element behind form */
+.contact-form-card::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    bottom: -20px;
+    left: -20px;
+    background: linear-gradient(to bottom right, #38bdf8, #2563eb);
+    z-index: -1;
+    border-radius: 2.5rem;
+    opacity: 0.3;
+    filter: blur(20px);
+}
+
+.form-title {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    color: #1e293b;
+    /* Slate-800 */
+    letter-spacing: -0.025em;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #64748b;
+    /* Slate-500 */
+    margin-left: 0.25rem;
+}
+
+.form-input,
+.form-textarea {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    border: 2px solid #e2e8f0;
+    /* Slate-200 */
+    border-radius: 1rem;
+    /* More rounded */
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    background-color: #f8fafc;
+    /* Slate-50 */
+    color: #334155;
+    font-weight: 500;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+    color: #cbd5e1;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    border-color: #38bdf8;
+    /* Sky-400 */
+    background-color: white;
+    box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.1);
+    transform: translateY(-1px);
+}
+
+.form-textarea {
+    resize: none;
+    min-height: 140px;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 1rem;
+    margin-top: 1rem;
+    background: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%);
+    /* Blue to Cyan */
+    color: white;
+    font-size: 1.05rem;
+    font-weight: 700;
+    border-radius: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.4);
+    filter: brightness(1.1);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
