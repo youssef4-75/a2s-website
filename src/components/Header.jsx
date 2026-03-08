@@ -26,7 +26,7 @@ export default function Header() {
           
           {/* Logo  */}
           <a href="/#accueil" className="flex items-center space-x-3">
-            <img src="/assets/A2S Logo w border.png" alt="A2S Logo" className="w-20 h-20" />
+            <img src="/assets/A2S Logo (1).png" alt="A2S Logo" className="w-20 h-20" />
             <div>
               <h2 className={`font-bold text-xl ${showDarkText ? 'text-gray-900' : 'text-white'}`}>A2S</h2>
               <p className={`text-sm ${showDarkText ? 'text-gray-600' : 'text-blue-100'}`}>Junior Entreprise</p>
@@ -39,10 +39,10 @@ export default function Header() {
               href="https://www.linkedin.com/company/a2s-junior-entreprise/"
               target="_blank"
               rel="noopener noreferrer"
-              className={`transition-colors ${showDarkText ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-blue-300'}`}
+              className={`transition-colors mr-2 ${showDarkText ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-blue-300'}`}
               aria-label="LinkedIn A2S"
             >
-              <Linkedin size={20} />
+              <Linkedin size={22} />
             </a>
             <a
             href="/#accueil"
@@ -67,15 +67,9 @@ export default function Header() {
             </Link>
 
             <Link 
-              to="/actualites" 
+              to="/events" 
               className={`transition-colors text-base font-semibold tracking-wide ${showDarkText ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-black'}`}>
-              Actualités
-            </Link>
-
-            <Link 
-              to="/upcoming-events" 
-              className={`transition-colors text-base font-semibold tracking-wide ${showDarkText ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-black'}`}>
-              À Venir
+              Événements
             </Link>
 
             <Link to="/contact" className={`transition-colors text-base font-semibold tracking-wide ${showDarkText ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-black'}`}>
@@ -84,30 +78,39 @@ export default function Header() {
             <Link to="/contact" className="bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-sm px-5 py-2 rounded-full hover:shadow-lg transition-all transform hover:scale-105">
               Avoir un Devis
             </Link>
-            <Link to="/join-us" className={`flex items-center border-2 text-sm px-5 py-2 rounded-full font-semibold transition-all transform hover:scale-110 ${showDarkText ? 'border-blue-600 text-blue-600' : 'border-white text-white'}`}>
-              Rejoindre A2S
-            </Link>
+            {isHomePage ? (
+              <Link
+                to="/join-us"
+                className="text-base px-6 py-2 rounded-full font-bold transition-all duration-300 transform hover:scale-105 flex items-center justify-center min-w-[160px] min-h-[36px] whitespace-nowrap bg-[#00B6FF] text-white shadow-[0_2px_8px_0_rgba(0,0,0,0.08)] hover:bg-blue-600 hover:shadow-[0_4px_16px_0_rgba(0,182,255,0.24)]"
+              >
+                Rejoindre A2S
+              </Link>
+            ) : (
+              <Link
+                to="/join-us"
+                className="text-base px-6 py-2 rounded-full font-bold transition-all duration-300 transform hover:scale-105 flex items-center justify-center border-2 min-w-[160px] min-h-[36px] whitespace-nowrap border-blue-600 text-blue-600 bg-transparent hover:bg-blue-50 hover:text-blue-700 hover:border-blue-700"
+              >
+                Rejoindre A2S
+              </Link>
+            )}
           </div>
-
           {/* Mobile Menu Button */}
           <button 
             onClick={() => setIsMenuOpen(!isMenuOpen)} 
-            className="nav:hidden"
+            className="md:hidden ml-4"
             aria-label={isMenuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
           >
             {isMenuOpen ? <X className={showDarkText ? 'text-gray-900' : 'text-white'} /> : <Menu className={showDarkText ? 'text-gray-900' : 'text-white'} />}
           </button>
         </div>
       </div>
-
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="nav:hidden bg-white border-t">
+        <div className="md:hidden bg-white border-t">
           <div className="px-4 py-4 space-y-3">
             <a href="/#accueil" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600">Accueil</a>
             <a href="/#apropos" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600">À Propos</a>
             <a href="/#services" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600">Services</a>
-            
             <Link to="/projects" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600">Projets</Link>
             <Link to="/actualites" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600">Actualités</Link>
             <Link to="/upcoming-events" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600">Événements à Venir</Link>

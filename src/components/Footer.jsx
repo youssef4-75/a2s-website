@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Linkedin, Facebook, Instagram } from 'lucide-react';
 import { COMPANY_NAME, COMPANY_ADDRESS } from '../constants';
 
 export default function Footer() {
@@ -34,7 +35,17 @@ export default function Footer() {
             <h4 className="text-lg font-semibold mb-4 text-blue-400">Contact</h4>
             <p className="text-gray-400 italic">{COMPANY_ADDRESS}</p>
             <p className="text-gray-400 mt-2"> <a href="mailto:contact@a2s.ma" className="text-blue-400 hover:text-blue-300 transition-colors">contact@a2s.ma</a></p>
-
+            <div className="flex space-x-3 mt-2">
+              <a href="https://www.linkedin.com/company/a2s-junior-entreprise/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <Linkedin size={20} className="hover:text-blue-600 transition-colors" />
+              </a>
+              <a href="https://www.facebook.com/a2sje" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <Facebook size={20} className="hover:text-blue-600 transition-colors" />
+              </a>
+              <a href="https://www.instagram.com/a2s_junior_entreprise" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <Instagram size={20} className="hover:text-pink-500 transition-colors" />
+              </a>
+            </div>
           </div>
         </div>
 
