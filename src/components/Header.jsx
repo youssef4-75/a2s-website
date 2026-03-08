@@ -26,7 +26,7 @@ export default function Header() {
           
           {/* Logo  */}
           <a href="/#accueil" className="flex items-center space-x-3">
-            <img src="/assets/A2S Logo (1).png" alt="A2S Logo" className="w-20 h-20" />
+            <img src="/assets/A2S Logo w border.png" alt="A2S Logo" className="w-20 h-20" />
             <div>
               <h2 className={`font-bold text-xl ${showDarkText ? 'text-gray-900' : 'text-white'}`}>A2S</h2>
               <p className={`text-sm ${showDarkText ? 'text-gray-600' : 'text-blue-100'}`}>Junior Entreprise</p>
@@ -72,6 +72,18 @@ export default function Header() {
               Événements
             </Link>
 
+            <Link 
+              to="/actualites" 
+              className={`transition-colors text-base font-semibold tracking-wide ${showDarkText ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-black'}`}>
+              Actualités
+            </Link>
+
+            <Link 
+              to="/upcoming-events" 
+              className={`transition-colors text-base font-semibold tracking-wide ${showDarkText ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-black'}`}>
+              A Venir
+            </Link>
+
             <Link to="/contact" className={`transition-colors text-base font-semibold tracking-wide ${showDarkText ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-black'}`}>
               Contact
             </Link>
@@ -97,7 +109,7 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <button 
             onClick={() => setIsMenuOpen(!isMenuOpen)} 
-            className="md:hidden ml-4"
+            className="nav:hidden ml-4"
             aria-label={isMenuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
           >
             {isMenuOpen ? <X className={showDarkText ? 'text-gray-900' : 'text-white'} /> : <Menu className={showDarkText ? 'text-gray-900' : 'text-white'} />}
@@ -106,7 +118,7 @@ export default function Header() {
       </div>
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white border-t">
+        <div className="nav:hidden bg-white border-t">
           <div className="px-4 py-4 space-y-3">
             <a href="/#accueil" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600">Accueil</a>
             <a href="/#apropos" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600">À Propos</a>

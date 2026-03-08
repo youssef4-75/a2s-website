@@ -86,38 +86,27 @@ export default function HomePage() {
             <img 
               src="/assets/A2S Logo (1).png"
               alt="A2S Logo" 
-              className="mx-auto lg:mx-0 mb-6 w-40 h-40"
+              className="mx-auto lg:mx-0 mb-4 sm:mb-6 w-28 h-28 sm:w-40 sm:h-40"
             />
-            <h2 className="text-2xl md:text-4xl text-blue-200 mb-8 font-light">
+            <h2 className="text-xl sm:text-2xl md:text-4xl text-blue-200 mb-6 sm:mb-8 font-light">
               Junior Entreprise
             </h2>
-            <p className="text-xl md:text-2xl text-white mb-12 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+            <p className="text-base sm:text-xl md:text-2xl text-white mb-8 sm:mb-12 max-w-xl mx-auto lg:mx-0 leading-relaxed">
               <strong style={{ color: '#00B6FF' }}>A2S</strong> est la Junior-Entreprise de l'INPT, une école leader en matière de développement et de technologies d'information
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
               <Link
                 to="/contact"
-                className="bg-[#00B6FF] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#0099cc] hover:shadow-2xl transition-all transform hover:scale-105 flex items-center justify-center gap-2"
+                className="bg-[#00B6FF] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-sm sm:text-base hover:bg-[#0099cc] hover:shadow-2xl transition-all transform hover:scale-105 flex items-center justify-center gap-2"
               >
-                <FileText size={20} />
+                <FileText size={18} />
                 Avoir un Devis
               </Link>
               <a
                 href="https://drive.google.com/file/d/175K5NsKZIkT6L8j9TGQApxSOL6S0_sos/view"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-semibold transition-all transform hover:scale-105 flex items-center justify-center gap-2"
-                style={{ position: 'relative', overflow: 'hidden' }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.background = '#00B6FF';
-                  e.currentTarget.style.color = '#fff';
-                  e.currentTarget.style.borderColor = '#fff';
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.background = 'transparent';
-                  e.currentTarget.style.color = '#00B6FF';
-                  e.currentTarget.style.borderColor = '#00B6FF';
-                }}
+                className="bg-transparent border-2 border-white text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-sm sm:text-base transition-all transform hover:scale-105 flex items-center justify-center gap-2 hover:bg-[#00B6FF] hover:border-[#00B6FF]"
               >
                 <FileText size={20} />
                 Télécharger notre Plaquette
@@ -177,33 +166,17 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* About Section */}
+{/* About Section */}
       <section id="apropos" className="py-20 px-4 bg-gray-50">
         <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col md:flex-row gap-12 items-start">
-            {/* Left — About text */}
-            <div className="flex-1 order-2 md:order-1">
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                Qui Sommes-nous ?
-              </h2>
-              <p className="text-lg text-gray-700 leading-relaxed mb-8">
-                A2S est la Junior-Entreprise de l'Institut National des Postes et Télécommunications, une école leader🎖 en matière de technologies d'information. Bénéficiant ainsi d'un encadrement de professionnels et d'une importante logistique, nous offrons un service de qualité qui reflète le savoir-faire de nos intervenants dans le domaine du développement et des nouvelles technologies.
-              </p>
-              <p className="text-xl font-semibold text-blue-600 mb-8">
-                #TrustTomorrowsEngineers 🦾
-              </p>
-              <Link to="/team" className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition-all transform hover:scale-105">
-                <Users size={20} />
-                Découvrir notre Équipe de Bureau
-                <ArrowRight size={20} />
-              </Link>
-            </div>
+          {/* On retire les gap ici et on laisse les éléments se placer naturellement */}
+          <div className="flex flex-col md:flex-row items-stretch gap-8">
+            
+            {/* 1. LIGNE BLEUE (Tout à gauche) */}
+            <div className="hidden md:block w-px bg-blue-300 flex-shrink-0" />
 
-            {/* Vertical Divider */}
-            <div className="hidden md:block w-px bg-blue-300 self-stretch" />
-
-            {/* Right — Actualités + Upcoming Events (compact) */}
-            <div className="flex-1 order-1 md:order-3 space-y-6">
+            {/* 2. ACTUALITÉS & ÉVÉNEMENTS (Colonne de gauche) */}
+            <div className="flex-1 space-y-6">
               {/* Actualités */}
               <div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-3">Actualités</h3>
@@ -254,6 +227,29 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
+
+            {/* 3. LIGNE GRISE (Pile au milieu) */}
+            {/* flex-shrink-0 empêche la ligne de s'écraser */}
+            <div className="hidden md:block w-px bg-gray-200 flex-shrink-0 mx-4" />
+
+            {/* 4. QUI SOMMES-NOUS ? (Colonne de droite) */}
+            <div className="flex-1">
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                Qui Sommes-nous ?
+              </h2>
+              <p className="text-lg text-gray-700 leading-relaxed mb-8">
+                A2S est la Junior-Entreprise de l'Institut National des Postes et Télécommunications, une école leader🎖 en matière de technologies d'information. Bénéficiant ainsi d'un encadrement de professionnels et d'une importante logistique, nous offrons un service de qualité qui reflète le savoir-faire de nos intervenants dans le domaine du développement et des nouvelles technologies.
+              </p>
+              <p className="text-xl font-semibold text-blue-600 mb-8">
+                #TrustTomorrowsEngineers 🦾
+              </p>
+              <Link to="/team" className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition-all transform hover:scale-105">
+                <Users size={20} />
+                Découvrir notre Équipe de Bureau
+                <ArrowRight size={20} />
+              </Link>
+            </div>
+
           </div>
         </div>
       </section>
