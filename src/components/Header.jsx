@@ -26,7 +26,7 @@ export default function Header() {
           
           {/* Logo  */}
           <a href="/#accueil" className="flex items-center space-x-3">
-            <img src="/assets/Logo A2S.png" alt="A2S Logo" className="w-20 h-20" />
+            <img src="src\assets\A2S Logo (1).png" alt="A2S Logo" className="w-20 h-20" />
             <div>
               <h2 className={`font-bold text-xl ${showDarkText ? 'text-gray-900' : 'text-white'}`}>A2S</h2>
               <p className={`text-sm ${showDarkText ? 'text-gray-600' : 'text-blue-100'}`}>Junior Entreprise</p>

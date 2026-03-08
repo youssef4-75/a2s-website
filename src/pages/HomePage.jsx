@@ -82,7 +82,7 @@ export default function HomePage() {
           {/* Left Content */}
           <div className="w-full lg:w-1/2 text-center lg:text-left px-6 md:px-12 lg:px-16 py-12">
             <img 
-              src="/assets/a2s logo.png"
+              src="src\assets\A2S Logo (1).png"
               alt="A2S Logo" 
               className="mx-auto lg:mx-0 mb-6 w-40 h-40"
             />
