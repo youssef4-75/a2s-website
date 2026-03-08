@@ -36,7 +36,7 @@ export default function ContactPage() {
                     <div className="space-y-8 pt-4">
                         <div className="space-y-4">
                             <span className="inline-block py-1 px-3 rounded-full bg-blue-50 text-[#1e54c6] text-xs font-bold uppercase tracking-wider">
-                                Contact Us
+                                Contactez-nous
                             </span>
                             <h1 className="text-4xl md:text-5xl font-bold text-[#111827] leading-tight">
                                 A2S Junior Entreprise
@@ -52,7 +52,7 @@ export default function ContactPage() {
                                     <Mail size={20} />
                                 </div>
                                 <div>
-                                    <h3 className="font-semibold text-[#111827]">Email</h3>
+                                    <h3 className="font-semibold text-[#111827]">E-mail</h3>
                                     <p className="text-sm text-[#6b7280]">contact@a2s-inpt.ma</p>
                                 </div>
                             </div>
@@ -79,7 +79,7 @@ export default function ContactPage() {
                             ></iframe>
                             <div className="absolute top-4 left-4 bg-white p-4 rounded-lg shadow-md max-w-xs border border-gray-100 z-10 w-fit">
                                 <h4 className="font-bold text-sm text-[#111827] mb-2">Institut National des Postes et Télécommunications</h4>
-                                <a className="text-xs text-[#1e54c6] font-medium hover:underline" href="https://maps.google.com/?q=INPT+Rabat" target="_blank" rel="noreferrer">View larger map</a>
+                                <a className="text-xs text-[#1e54c6] font-medium hover:underline" href="https://maps.google.com/?q=INPT+Rabat" target="_blank" rel="noreferrer">Voir la carte en grand</a>
                             </div>
                         </div>
                     </div>
@@ -89,13 +89,13 @@ export default function ContactPage() {
                         <form onSubmit={handleSubmit} className="space-y-6">
                             <div className="space-y-2">
                                 <label className="block text-sm font-medium text-[#111827]" htmlFor="name">
-                                    Your Name <span className="text-red-500">*</span>
+                                    Nom <span className="text-red-500">*</span>
                                 </label>
                                 <input
                                     className="w-full px-4 py-3 rounded-lg bg-white border border-[#e5e7eb] focus:border-[#1e54c6] focus:ring-2 focus:ring-[#1e54c6]/20 outline-none transition-all placeholder-gray-400 text-[#111827]"
                                     id="name"
                                     name="name"
-                                    placeholder="Name"
+                                    placeholder="Votre nom"
                                     type="text"
                                     value={formData.name}
                                     onChange={handleChange}
@@ -104,13 +104,13 @@ export default function ContactPage() {
                             </div>
                             <div className="space-y-2">
                                 <label className="block text-sm font-medium text-[#111827]" htmlFor="email">
-                                    Email <span className="text-red-500">*</span>
+                                    E-mail <span className="text-red-500">*</span>
                                 </label>
                                 <input
                                     className="w-full px-4 py-3 rounded-lg bg-white border border-[#e5e7eb] focus:border-[#1e54c6] focus:ring-2 focus:ring-[#1e54c6]/20 outline-none transition-all placeholder-gray-400 text-[#111827]"
                                     id="email"
                                     name="email"
-                                    placeholder="Email"
+                                    placeholder="Votre e-mail"
                                     type="email"
                                     value={formData.email}
                                     onChange={handleChange}
@@ -119,13 +119,13 @@ export default function ContactPage() {
                             </div>
                             <div className="space-y-2">
                                 <label className="block text-sm font-medium text-[#111827]" htmlFor="phone">
-                                    Phone Number <span className="text-red-500">*</span>
+                                    Téléphone <span className="text-red-500">*</span>
                                 </label>
                                 <input
                                     className="w-full px-4 py-3 rounded-lg bg-white border border-[#e5e7eb] focus:border-[#1e54c6] focus:ring-2 focus:ring-[#1e54c6]/20 outline-none transition-all placeholder-gray-400 text-[#111827]"
                                     id="phone"
                                     name="phone"
-                                    placeholder="Phone"
+                                    placeholder="Votre numéro de téléphone"
                                     type="tel"
                                     value={formData.phone}
                                     onChange={handleChange}
@@ -134,13 +134,13 @@ export default function ContactPage() {
                             </div>
                             <div className="space-y-2">
                                 <label className="block text-sm font-medium text-[#111827]" htmlFor="message">
-                                    Description <span className="text-red-500">*</span>
+                                    Message <span className="text-red-500">*</span>
                                 </label>
                                 <textarea
                                     className="w-full px-4 py-3 rounded-lg bg-white border border-[#e5e7eb] focus:border-[#1e54c6] focus:ring-2 focus:ring-[#1e54c6]/20 outline-none transition-all resize-none placeholder-gray-400 text-[#111827]"
                                     id="message"
                                     name="message"
-                                    placeholder="Message"
+                                    placeholder="Votre message"
                                     rows="4"
                                     value={formData.message}
                                     onChange={handleChange}
@@ -148,7 +148,7 @@ export default function ContactPage() {
                                 ></textarea>
                             </div>
                             <button className="w-full py-4 px-6 bg-[#1e54c6] hover:bg-[#16419e] text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#1e54c6]" type="submit">
-                                Send Message
+                                Envoyer le message
                             </button>
                         </form>
                     </div>

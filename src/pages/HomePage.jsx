@@ -90,21 +90,32 @@ export default function HomePage() {
               Junior Entreprise
             </h2>
             <p className="text-xl md:text-2xl text-white mb-12 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-              <strong className="text-cyan-300">A2S</strong> est la Junior-Entreprise de l'INPT, une école leader en matière de développement et de technologies d'information
+              <strong style={{ color: '#00B6FF' }}>A2S</strong> est la Junior-Entreprise de l'INPT, une école leader en matière de développement et de technologies d'information
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <a
-                href="#contact"
-                className="bg-cyan-500 text-white px-8 py-4 rounded-full font-semibold hover:bg-cyan-400 hover:shadow-2xl transition-all transform hover:scale-105 flex items-center justify-center gap-2"
+              <Link
+                to="/contact"
+                className="bg-[#00B6FF] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#0099cc] hover:shadow-2xl transition-all transform hover:scale-105 flex items-center justify-center gap-2"
               >
                 <FileText size={20} />
                 Avoir un Devis
-              </a>
+              </Link>
               <a
                 href="https://drive.google.com/file/d/175K5NsKZIkT6L8j9TGQApxSOL6S0_sos/view"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-blue-900 transition-all transform hover:scale-105 flex items-center justify-center gap-2"
+                className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-semibold transition-all transform hover:scale-105 flex items-center justify-center gap-2"
+                style={{ position: 'relative', overflow: 'hidden' }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.background = '#00B6FF';
+                  e.currentTarget.style.color = '#fff';
+                  e.currentTarget.style.borderColor = '#fff';
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.background = 'transparent';
+                  e.currentTarget.style.color = '#00B6FF';
+                  e.currentTarget.style.borderColor = '#00B6FF';
+                }}
               >
                 <FileText size={20} />
                 Télécharger notre Plaquette
