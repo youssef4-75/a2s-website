@@ -1,16 +1,14 @@
 import React, { useRef } from 'react';
 import { ArrowRight, Calendar } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import useOnScreen from '../../hooks/useOnScreen';
 
-export default function ProjectCard({ image = '', title = '', category = '', date = '', description = '', link = '', className = '' }) {
+export default function ProjectCard({ image = '', title = '', category = '', date = '', description = '', link = '', serviceId = '', className = '' }) {
     const ref = useRef(null);
     const isVisible = useOnScreen(ref);
 
-    return (
-        <div
-            ref={ref}
-            className={`project-card group animate-on-scroll ${isVisible ? 'is-visible' : ''} ${className}`}
-        >
+    const cardContent = (
+        <>
             {/* Card Image */}
             <div className="card-image-wrapper">
                 <img
@@ -19,7 +17,11 @@ export default function ProjectCard({ image = '', title = '', category = '', dat
                     className="card-image"
                 />
                 <div className="card-badge">
-                    {category}
+                    {serviceId ? (
+                        <Link to={`/services/${serviceId}`} className="hover:underline" onClick={e => e.stopPropagation()}>
+                            {category}
+                        </Link>
+                    ) : category}
                 </div>
             </div>
 
@@ -40,13 +42,24 @@ export default function ProjectCard({ image = '', title = '', category = '', dat
 
                 <div className="card-footer">
                     <span className="read-case-study">
-                        plus d'information
+                        Plus d'informations
                     </span>
-                    <a href={link || "#"} className="card-arrow">
+                    <span className="card-arrow">
                         <ArrowRight size={18} />
-                    </a>
+                    </span>
                 </div>
             </div>
-        </div>
+        </>
+    );
+
+    return (
+        <Link
+            to={link || '#'}
+            ref={ref}
+            className={`project-card group animate-on-scroll ${isVisible ? 'is-visible' : ''} ${className}`}
+            style={{ textDecoration: 'none', color: 'inherit' }}
+        >
+            {cardContent}
+        </Link>
     );
 }

@@ -5,6 +5,7 @@ import ScrollToTop from '../components/ScrollToTop';
 import EventsPage from '../pages/EventsPage';
 import ContactPage from '../pages/ContactPage';
 import ProjectsPage from '../pages/ProjectsPage';
+import ProjectDetailPage from '../pages/ProjectDetailPage';
 import HomePage from '../pages/HomePage';
 import Registration from '../pages/JoinUs';
 import NotFoundPage from '../pages/NotFoundPage';
@@ -26,6 +27,7 @@ export default function AppRoutes() {
           <Route path="home" element={<HomePage />} />
           <Route path="events" element={<EventsPage />} />
           <Route path="projects" element={<ProjectsPage />} />
+          <Route path="projects/:projectSlug" element={<ProjectDetailPage />} />
           <Route path="services/:serviceId" element={<ServiceDetailPage />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="join-us" element={<Registration />} />

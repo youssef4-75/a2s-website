@@ -1,7 +1,8 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { services } from '../data/services';
-import { ArrowLeft } from 'lucide-react';
+import { allProjects } from '../data/projects';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 
 export default function ServiceDetailPage() {
   const { serviceId } = useParams();
@@ -24,6 +25,8 @@ export default function ServiceDetailPage() {
       </div>
     );
   }
+
+  const relatedProjects = allProjects.filter(p => p.serviceId === serviceId);
 
   return (
     <div className="min-h-screen pt-28 pb-20 px-4 bg-gradient-to-br from-gray-50 to-blue-50">
@@ -56,25 +59,50 @@ export default function ServiceDetailPage() {
             {service.description}
           </p>
 
-          {/* Placeholder Content - To be filled later */}
           <div className="prose prose-lg max-w-none">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">À propos de ce service</h2>
             <p className="text-gray-700 mb-6">
-              Contenu détaillé à venir. Cette section sera mise à jour avec les informations 
-              complètes sur notre service de {service.title.toLowerCase()}.
+              {service.about || `Contenu détaillé à venir pour ${service.title.toLowerCase()}.`}
             </p>
+
+            {/* Related Projects - moved up for visibility */}
+            {relatedProjects.length > 0 && (
+              <div className="mt-10 mb-10">
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">Nos Projets en {service.title}</h2>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {relatedProjects.map(p => (
+                    <Link
+                      key={p.slug}
+                      to={`/projects/${p.slug}`}
+                      className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all hover:-translate-y-1"
+                    >
+                      <div className="h-40 overflow-hidden">
+                        <img src={p.image} alt={p.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                      </div>
+                      <div className="p-4">
+                        <p className="text-xs text-gray-400 uppercase font-semibold mb-1">{p.category}</p>
+                        <h3 className="font-bold text-gray-900 group-hover:text-blue-600 transition-colors mb-1">{p.title}</h3>
+                        <p className="text-gray-500 text-sm line-clamp-2">{p.description}</p>
+                        <span className="inline-flex items-center gap-1 text-blue-600 text-sm font-semibold mt-2">
+                          Voir le projet <ArrowRight size={14} />
+                        </span>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
 
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Ce que nous offrons</h2>
             <ul className="list-disc list-inside text-gray-700 space-y-2 mb-6">
-              <li>Point clé 1 - À définir</li>
-              <li>Point clé 2 - À définir</li>
-              <li>Point clé 3 - À définir</li>
-              <li>Point clé 4 - À définir</li>
+              {(service.offerings || []).map((item, i) => (
+                <li key={i}>{item}</li>
+              ))}
             </ul>
 
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Pourquoi nous choisir ?</h2>
             <p className="text-gray-700 mb-6">
-              Description des avantages et de notre expertise à venir.
+              {service.whyUs || "Description des avantages et de notre expertise à venir."}
             </p>
           </div>
 
@@ -89,6 +117,7 @@ export default function ServiceDetailPage() {
             </Link>
           </div>
         </div>
+
       </div>
     </div>
   );

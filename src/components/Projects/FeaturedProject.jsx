@@ -1,11 +1,12 @@
 import React, { useRef } from 'react';
 import { ArrowRight, Calendar, Clock } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import useOnScreen from '../../hooks/useOnScreen';
 
 // CSS is imported in the parent page for simplicity, or could be here. 
 // Standard practice is often to import where used, but since we have one CSS file for "Projects", it's fine.
 
-export default function FeaturedProject({ image = '', title = '', category = '', date = '', description = '', link = '' }) {
+export default function FeaturedProject({ image = '', title = '', category = '', date = '', description = '', link = '', serviceId = '' }) {
     const ref = useRef(null);
     const isVisible = useOnScreen(ref);
 
@@ -23,7 +24,11 @@ export default function FeaturedProject({ image = '', title = '', category = '',
                         className="featured-image"
                     />
                     <div className="featured-category-badge">
-                        {category}
+                        {serviceId ? (
+                            <Link to={`/services/${serviceId}`} className="hover:underline">
+                                {category}
+                            </Link>
+                        ) : category}
                     </div>
                 </div>
 
@@ -51,7 +56,7 @@ export default function FeaturedProject({ image = '', title = '', category = '',
                     <div className="featured-footer">
                         <div className="author-block">
                             <div className="author-avatar bg-white flex items-center justify-center overflow-hidden border border-slate-100">
-                                <img src="/Logo A2S.png" alt="Author" className="object-contain w-full h-full p-0.5" />
+                                <img src="/assets/Logo A2S.png" alt="Author" className="object-contain w-full h-full p-0.5" />
                             </div>
                             <span className="author-name">Équipe A2S</span>
                         </div>
