@@ -73,7 +73,7 @@ export default function HomePage() {
         {/* Background image covering the left side */}
         <div 
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: 'url(public\assets\hero-bg.jpeg)' }}
+          style={{ backgroundImage: 'url(/assets/hero-bg.jpeg)' }}
         ></div>
         {/* Dark blue overlay fading from left to transparent on right */}
         <div className="absolute inset-0 bg-gradient-to-r from-blue-900/85 via-blue-900/70 to-transparent"></div>
@@ -82,7 +82,7 @@ export default function HomePage() {
           {/* Left Content */}
           <div className="w-full lg:w-1/2 text-center lg:text-left px-6 md:px-12 lg:px-16 py-12">
             <img 
-              src="public\assets\A2S Logo (1).png"
+              src="/assets/A2S Logo (1).png"
               alt="A2S Logo" 
               className="mx-auto lg:mx-0 mb-6 w-40 h-40"
             />
