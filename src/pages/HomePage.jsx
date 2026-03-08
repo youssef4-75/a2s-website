@@ -1,7 +1,9 @@
 import React, { useEffect, useRef } from 'react';
-import { ChevronDown, FileText, Users, ArrowRight, Mail, MapPin } from 'lucide-react';
+import { ChevronDown, FileText, Users, ArrowRight, Mail, MapPin, Calendar, Clock } from 'lucide-react';
 import { Link } from "react-router-dom";
 import { services } from '../data/services';
+import { actualites } from '../data/actualites';
+import { upcomingEvents } from '../data/upcomingEvents';
 import ContactForm from '../components/ContactForm';
 import { COMPANY_NAME, CONTACT_EMAIL, COMPANY_ADDRESS, GOOGLE_MAPS_EMBED_URL } from '../constants';
 
@@ -167,8 +169,9 @@ export default function HomePage() {
       {/* About Section */}
       <section id="apropos" className="py-20 px-4 bg-gray-50">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="order-2 md:order-1">
+          <div className="flex flex-col md:flex-row gap-12 items-start">
+            {/* Left — About text */}
+            <div className="flex-1 order-2 md:order-1">
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
                 Qui Sommes-nous ?
               </h2>
@@ -184,14 +187,60 @@ export default function HomePage() {
                 <ArrowRight size={20} />
               </Link>
             </div>
-            <div className="order-1 md:order-2">
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-3xl transform rotate-3"></div>
-                <img 
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=500&fit=crop" 
-                  alt="Team collaboration" 
-                  className="relative rounded-3xl shadow-2xl w-full h-96 object-cover"
-                />
+
+            {/* Vertical Divider */}
+            <div className="hidden md:block w-px bg-blue-300 self-stretch" />
+
+            {/* Right — Actualités + Upcoming Events (compact) */}
+            <div className="flex-1 order-1 md:order-3 space-y-6">
+              {/* Actualités */}
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-3">Actualités</h3>
+                <div className="space-y-2">
+                  {actualites.map((item, idx) => (
+                    <Link key={idx} to={`/actualites#actualite-${idx}`} className="flex items-center gap-3 p-3 rounded-xl hover:bg-white hover:shadow-md transition-all group">
+                      <div className="w-9 h-9 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                        <FileText size={18} />
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <p className="text-sm font-semibold text-gray-900 line-clamp-1">{item.title}</p>
+                        <div className="flex items-center gap-1 text-gray-500 text-xs">
+                          <Calendar size={11} />
+                          <span>{item.date}</span>
+                        </div>
+                      </div>
+                      <ArrowRight size={16} className="text-gray-400 group-hover:text-blue-600 flex-shrink-0 transition-colors" />
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              {/* Upcoming Events */}
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-3">Événements à Venir</h3>
+                <div className="space-y-2">
+                  {upcomingEvents.map((event, idx) => (
+                    <Link key={idx} to={`/upcoming-events#event-${idx}`} className="flex items-center gap-3 p-3 rounded-xl hover:bg-white hover:shadow-md transition-all group">
+                      <div className="w-9 h-9 rounded-lg bg-cyan-100 text-cyan-600 flex items-center justify-center flex-shrink-0 group-hover:bg-cyan-500 group-hover:text-white transition-colors">
+                        <Calendar size={18} />
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <p className="text-sm font-semibold text-gray-900 line-clamp-1">{event.title}</p>
+                        <div className="flex items-center gap-1 text-gray-500 text-xs">
+                          <Calendar size={11} />
+                          <span>{event.date}</span>
+                          {event.time && (
+                            <>
+                              <Clock size={11} />
+                              <span>{event.time}</span>
+                            </>
+                          )}
+                        </div>
+                      </div>
+                      <ArrowRight size={16} className="text-gray-400 group-hover:text-cyan-500 flex-shrink-0 transition-colors" />
+                    </Link>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

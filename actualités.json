@@ -1,0 +1,53 @@
+{
+  "events": [
+    {
+      "title": "A2S organise un workshop 100% pratique sur les systèmes distribués",
+      "date": "7 mars 2026",
+      "location": "INPT, B202",
+      "description": "La Junior Entreprise A2S a animé un workshop immersif dédié aux systèmes distribués : après une introduction ciblée sur les concepts clés (architecture, consensus, résilience), les participants ont enchaîné sur des défis techniques en mode CTF — en solo ou en équipe — pour appliquer immédiatement les notions abordées. Une expérience collaborative, accessible aux débutants, et conçue pour apprendre en faisant.",
+      "media": {
+        "poster": "poster 7mars.jpeg",
+        "images": [
+          "7mars 1.jpeg",
+          "7mars 2.jpeg"
+        ]
+      },
+      "tags": [
+        "Workshop",
+        "Systèmes distribués",
+        "CTF",
+        "Pratique"
+      ]
+    },
+    {
+      "title": "Mentoring 8e édition",
+    "date": "21-22 December",
+    "location": "INPT",
+    "description": "Some conversations change your path. on 21-22 December, The A2S Club hosted Mentoring at INPT—a gathering where students and alumni came together not for presentations, but for real conversation. Students brought their questions: about choices, challenges, and next steps. Alumni shared their journeys—not as polished success stories, but as honest reflections shaped by trial, uncertainty, and growth. The value wasn’t in having all the answers, but in feeling seen, supported, and reminded that every professional once stood where you are now. To all the alumni who gave their time: thank you. Your presence didn’t just guide—it gave students the confidence to keep going.",
+    "media": {
+      "poster": "mentoring-poster.png",
+      "images": [
+        "mentoring1.jpg",
+        "mentoring2.jpg",
+        "mentoring3.jpg",
+        "mentoring4.jpg",
+        "mentoring5.jpg",
+        "mentoring6.jpg",
+        "mentoring7.jpg",
+        "workshop2-mentoring1.jpg",
+        "workshop2-mentoring2.jpg",
+        "workshop1-mentoring1.jpg",
+        "workshop1-mentoring2.jpg"
+      ]
+    },
+    "tags": [
+      "Mentoring",
+      "Alumni",
+      "Networking",
+      "Soft Skills"
+    ]
+  }
+    
+  ]
+}
+

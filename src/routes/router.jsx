@@ -11,6 +11,8 @@ import Registration from '../pages/JoinUs';
 import NotFoundPage from '../pages/NotFoundPage';
 import ServiceDetailPage from '../pages/ServiceDetailPage';
 import TeamPage from '../pages/TeamPage';
+import ActualitesPage from '../pages/ActualitesPage';
+import UpcomingEventsPage from '../pages/UpcomingEventsPage';
 
 export default function AppRoutes() {
   return (
@@ -32,6 +34,8 @@ export default function AppRoutes() {
           <Route path="contact" element={<ContactPage />} />
           <Route path="join-us" element={<Registration />} />
           <Route path="team" element={<TeamPage />} />
+          <Route path="actualites" element={<ActualitesPage />} />
+          <Route path="upcoming-events" element={<UpcomingEventsPage />} />
           <Route path="*" element={<NotFoundPage />} />
 
         </Route>

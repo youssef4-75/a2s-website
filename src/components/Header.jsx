@@ -26,7 +26,7 @@ export default function Header() {
           
           {/* Logo  */}
           <a href="/#accueil" className="flex items-center space-x-3">
-            <img src="/assets/A2S Logo (1).png" alt="A2S Logo" className="w-20 h-20" />
+            <img src="/assets/A2S Logo w border.png" alt="A2S Logo" className="w-20 h-20" />
             <div>
               <h2 className={`font-bold text-xl ${showDarkText ? 'text-gray-900' : 'text-white'}`}>A2S</h2>
               <p className={`text-sm ${showDarkText ? 'text-gray-600' : 'text-blue-100'}`}>Junior Entreprise</p>
@@ -67,9 +67,15 @@ export default function Header() {
             </Link>
 
             <Link 
-              to="/events" 
+              to="/actualites" 
               className={`transition-colors text-base font-semibold tracking-wide ${showDarkText ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-black'}`}>
-              Événements
+              Actualités
+            </Link>
+
+            <Link 
+              to="/upcoming-events" 
+              className={`transition-colors text-base font-semibold tracking-wide ${showDarkText ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-black'}`}>
+              À Venir
             </Link>
 
             <Link to="/contact" className={`transition-colors text-base font-semibold tracking-wide ${showDarkText ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-black'}`}>
@@ -103,7 +109,8 @@ export default function Header() {
             <a href="/#services" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600">Services</a>
             
             <Link to="/projects" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600">Projets</Link>
-            <Link to="/events" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600">Événements</Link>
+            <Link to="/actualites" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600">Actualités</Link>
+            <Link to="/upcoming-events" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600">Événements à Venir</Link>
             <Link to="/contact" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600">Contact</Link>
             <Link to="/join-us" onClick={() => setIsMenuOpen(false)} className="block text-blue-600 font-semibold hover:text-blue-800">Rejoindre A2S</Link>
           </div>

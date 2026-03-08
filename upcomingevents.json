@@ -1,0 +1,27 @@
+{
+  "events": [
+    {
+      "title": "From Student to Engineer in the AI Era",
+      "series": "Tech Talks (Session 4)",
+      "date": "11 mars",
+      "time": "15:30",
+      "location": "Salle B202",
+      "speaker": {
+        "name": "Abdellah Iraamane",
+        "role": "Senior Software Engineer at Microsoft",
+        "linkedin": "https://www.linkedin.com/in/aairaamane/"
+      },
+      "description": "Will AI replace engineers? Or will it redefine what it means to be one? As AI continues to transform the tech industry, many students are asking the same questions: What will the role of an IT engineer look like in a few years? And what skills should we start building today to stay relevant tomorrow? Discover the skills every future engineer needs to stay in the game. This session will share insights on navigating a tech career in the age of AI, the skills that truly matter, and how future engineers can adapt and thrive in a rapidly evolving industry.",
+      "media": {
+        "poster": "poster 11 mars.jpeg"
+      },
+      "tags": [
+        "Tech Talks",
+        "AI",
+        "Career",
+        "Engineering"
+      ]
+    }
+    
+  ]
+}
