@@ -34,7 +34,7 @@ export default function Header() {
           </a>
 
           {/* Desktop Menu  */}
-          <div className="hidden md:flex items-center space-x-8 text-base">
+          <div className="hidden nav:flex items-center space-x-8 text-base">
             <a
               href="https://www.linkedin.com/company/a2s-junior-entreprise/"
               target="_blank"
@@ -86,7 +86,7 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <button 
             onClick={() => setIsMenuOpen(!isMenuOpen)} 
-            className="md:hidden"
+            className="nav:hidden"
             aria-label={isMenuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
           >
             {isMenuOpen ? <X className={showDarkText ? 'text-gray-900' : 'text-white'} /> : <Menu className={showDarkText ? 'text-gray-900' : 'text-white'} />}
@@ -96,7 +96,7 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white border-t">
+        <div className="nav:hidden bg-white border-t">
           <div className="px-4 py-4 space-y-3">
             <a href="/#accueil" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600">Accueil</a>
             <a href="/#apropos" onClick={() => setIsMenuOpen(false)} className="block text-gray-700 hover:text-blue-600">À Propos</a>
