@@ -11,7 +11,7 @@ export default function HomePage() {
   const pausedRef = useRef(false);
 
   useEffect(() => {
-    const SPEED = 0.15;
+    const SPEED = 0.5;
     const upEl = upRef.current;
     const downEl = downRef.current;
     if (!upEl || !downEl) return;
@@ -66,31 +66,36 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section id="accueil" className="relative min-h-screen flex items-center bg-gradient-to-br from-blue-900 via-blue-700 to-cyan-600 overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-          }}></div>
-        </div>
+      <section 
+        id="accueil" 
+        className="relative h-screen flex items-center justify-center overflow-hidden"
+      >
+        {/* Background image covering the left side */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: 'url(/src/assets/hero-bg.jpeg)' }}
+        ></div>
+        {/* Dark blue overlay fading from left to transparent on right */}
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/85 via-blue-900/70 to-transparent"></div>
 
         <div className="relative z-10 w-full flex flex-col lg:flex-row items-center">
           {/* Left Content */}
           <div className="w-full lg:w-1/2 text-center lg:text-left px-6 md:px-12 lg:px-16 py-12">
             <img 
-              src="/assets/Logo A2S.png"
+              src="/assets/a2s logo.png"
               alt="A2S Logo" 
               className="mx-auto lg:mx-0 mb-6 w-40 h-40"
             />
-            <h2 className="text-2xl md:text-4xl text-blue-100 mb-8 font-light">
+            <h2 className="text-2xl md:text-4xl text-blue-200 mb-8 font-light">
               Junior Entreprise
             </h2>
             <p className="text-xl md:text-2xl text-white mb-12 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-              <strong>A2S</strong> est la Junior-Entreprise de l'INPT, une école leader en matière de développement et de technologies d'information
+              <strong className="text-cyan-300">A2S</strong> est la Junior-Entreprise de l'INPT, une école leader en matière de développement et de technologies d'information
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <a
                 href="#contact"
-                className="bg-white text-blue-600 px-8 py-4 rounded-full font-semibold hover:shadow-2xl transition-all transform hover:scale-105 flex items-center justify-center gap-2"
+                className="bg-cyan-500 text-white px-8 py-4 rounded-full font-semibold hover:bg-cyan-400 hover:shadow-2xl transition-all transform hover:scale-105 flex items-center justify-center gap-2"
               >
                 <FileText size={20} />
                 Avoir un Devis
@@ -99,7 +104,7 @@ export default function HomePage() {
                 href="https://drive.google.com/file/d/175K5NsKZIkT6L8j9TGQApxSOL6S0_sos/view"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition-all transform hover:scale-105 flex items-center justify-center gap-2"
+                className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-blue-900 transition-all transform hover:scale-105 flex items-center justify-center gap-2"
               >
                 <FileText size={20} />
                 Télécharger notre Plaquette
