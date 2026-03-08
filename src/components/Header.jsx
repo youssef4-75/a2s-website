@@ -81,7 +81,7 @@ export default function Header() {
             <Link 
               to="/upcoming-events" 
               className={`transition-colors text-base font-semibold tracking-wide ${showDarkText ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-black'}`}>
-              A Venir
+              À Venir
             </Link>
 
             <Link to="/contact" className={`transition-colors text-base font-semibold tracking-wide ${showDarkText ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-black'}`}>
