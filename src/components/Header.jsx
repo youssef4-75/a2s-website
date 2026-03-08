@@ -68,7 +68,7 @@ export default function Header() {
             ) : (
               <Link
                 to="/join-us"
-                className="text-base px-6 py-2 rounded-full font-bold transition-all duration-300 transform hover:scale-105 flex items-center justify-center border-2 min-w-[160px] min-h-[36px] whitespace-nowrap border-black text-black bg-transparent hover:bg-[#00B6FF] hover:text-white hover:border-[#00B6FF]"
+                className="text-base px-6 py-2 rounded-full font-bold transition-all duration-300 transform hover:scale-105 flex items-center justify-center border-2 min-w-[160px] min-h-[36px] whitespace-nowrap border-blue-600 text-blue-600 bg-transparent hover:bg-blue-600 hover:text-white hover:border-blue-600"
               >
                 Rejoindre A2S
               </Link>
