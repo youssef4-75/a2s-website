@@ -5,9 +5,9 @@ import { COMPANY_NAME, COMPANY_ADDRESS } from '../constants';
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white py-12 px-4">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-8">
+    <footer className="bg-gray-900 text-white py-[5vh] px-[5%]">
+      <div className="w-full max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-[5%] mb-[3%]">
           {/* Info Section */}
           <div>
             <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">

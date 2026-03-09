@@ -45,7 +45,7 @@ export default function ProjectsPage() {
 
     return (
         <div className="projects-page">
-            <div style={{ height: '80px' }}></div>
+            <div className="pt-20 md:pt-24"></div>
             {/* Main Section: Only filtered projects */}
             <section className="projects-container">
                 <div className="projects-header-section">

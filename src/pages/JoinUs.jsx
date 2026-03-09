@@ -1,10 +1,76 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import React from "react";
+import React, { useState } from "react";
+
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzAbVhk-tAc6k2w4QWmh_BQxVMZYDe1gTygvX88eCSVw2JI-KtP16lVDowGXQiL9Nzm/exec';
+
+const initialFormData = {
+  formulaire: 'join_us',
+  nom: '',
+  email: '',
+  dateNaissance: '',
+  telephone: '',
+  genre: '',
+  filiere: '',
+  cycle: '',
+  competences: [],
+  notes: '',
+};
 
 export default function JoinUs() {
+  const [formData, setFormData] = useState(initialFormData);
+  const [status, setStatus] = useState('idle');
+  const [errorMsg, setErrorMsg] = useState('');
+  const [acceptTerms, setAcceptTerms] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleCheckbox = (skill) => {
+    setFormData((prev) => ({
+      ...prev,
+      competences: prev.competences.includes(skill)
+        ? prev.competences.filter((s) => s !== skill)
+        : [...prev.competences, skill],
+    }));
+  };
+
+  const handleReset = () => {
+    setFormData(initialFormData);
+    setAcceptTerms(false);
+    setStatus('idle');
+    setErrorMsg('');
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!acceptTerms) {
+      setStatus('error');
+      setErrorMsg('Veuillez accepter les termes et conditions.');
+      return;
+    }
+    setStatus('sending');
+    setErrorMsg('');
+
+    try {
+      const params = new URLSearchParams({
+        ...formData,
+        competences: formData.competences.join(', '),
+      });
+
+      await fetch(`${SCRIPT_URL}?${params.toString()}`, { mode: 'no-cors' });
+      setStatus('success');
+      setFormData(initialFormData);
+      setAcceptTerms(false);
+    } catch (error) {
+      setStatus('error');
+      setErrorMsg(error.message || 'Une erreur est survenue.');
+    }
+  };
+
   return (
-    <div className="min-vh-100" style={{ backgroundColor: '#1e3a5f', paddingTop: '100px' }}>
-      <div className="container py-5">
+    <div className="min-vh-100" style={{ backgroundColor: '#1e3a5f', paddingTop: 'max(5rem, 8vh)' }}>
+      <div className="container py-5" style={{ maxWidth: '92%' }}>
         <div className="row justify-content-center">
           <div className="col-lg-8">
 
@@ -18,7 +84,7 @@ export default function JoinUs() {
                   Veuillez remplir vos informations personnelles et académiques
                 </p>
 
-                <form>
+                <form onSubmit={handleSubmit}>
 
                   {/* INFORMATIONS PERSONNELLES */}
                   <h5 className="fw-bold mb-3">Informations Personnelles</h5>
@@ -26,22 +92,17 @@ export default function JoinUs() {
 
                     <div className="col-md-6">
                       <label className="form-label">Nom Complet</label>
-                      <input type="text" className="form-control" />
+                      <input type="text" className="form-control" name="nom" value={formData.nom} onChange={handleChange} required />
                     </div>
 
                     <div className="col-md-6">
                       <label className="form-label">Email</label>
-                      <input type="email" className="form-control" />
-                    </div>
-
-                    <div className="col-md-6">
-                      <label className="form-label">Mot de passe</label>
-                      <input type="password" className="form-control" />
+                      <input type="email" className="form-control" name="email" value={formData.email} onChange={handleChange} required />
                     </div>
 
                     <div className="col-md-6">
                       <label className="form-label">Date de Naissance</label>
-                      <input type="date" className="form-control" />
+                      <input type="date" className="form-control" name="dateNaissance" value={formData.dateNaissance} onChange={handleChange} required />
                     </div>
 
                     <div className="col-md-6">
@@ -49,22 +110,21 @@ export default function JoinUs() {
                       <input
                         type="tel"
                         className="form-control"
+                        name="telephone"
+                        value={formData.telephone}
+                        onChange={handleChange}
                         placeholder="+212 6XXXXXXXX"
+                        required
                       />
                     </div>
 
                     <div className="col-md-6">
                       <label className="form-label">Genre</label>
-                      <select className="form-select">
+                      <select className="form-select" name="genre" value={formData.genre} onChange={handleChange} required>
                         <option value="">Sélectionner</option>
-                        <option>Homme</option>
-                        <option>Femme</option>
+                        <option value="Homme">Homme</option>
+                        <option value="Femme">Femme</option>
                       </select>
-                    </div>
-
-                    <div className="col-12">
-                      <label className="form-label">Photo de Profil</label>
-                      <input type="file" className="form-control" />
                     </div>
                   </div>
 
@@ -76,10 +136,11 @@ export default function JoinUs() {
 
                     <div className="col-md-6">
                       <label className="form-label">Filière</label>
-                      <select className="form-select">
-                        <option>AMOA</option>
-                        <option>GI</option>
-                        <option>GRT</option>
+                      <select className="form-select" name="filiere" value={formData.filiere} onChange={handleChange} required>
+                        <option value="">Sélectionner</option>
+                        <option value="AMOA">AMOA</option>
+                        <option value="GI">GI</option>
+                        <option value="GRT">GRT</option>
                       </select>
                     </div>
 
@@ -91,7 +152,9 @@ export default function JoinUs() {
                           className="form-check-input"
                           type="radio"
                           name="cycle"
-                          value="engineering"
+                          value="Ingénieur"
+                          checked={formData.cycle === 'Ingénieur'}
+                          onChange={handleChange}
                         />
                         <label className="form-check-label">
                           Ingénieur
@@ -103,7 +166,9 @@ export default function JoinUs() {
                           className="form-check-input"
                           type="radio"
                           name="cycle"
-                          value="master"
+                          value="Master"
+                          checked={formData.cycle === 'Master'}
+                          onChange={handleChange}
                         />
                         <label className="form-check-label">
                           Master
@@ -114,34 +179,39 @@ export default function JoinUs() {
                     <div className="col-12">
                       <label className="form-label d-block">Compétences</label>
 
-                      <div className="form-check">
-                        <input className="form-check-input" type="checkbox" />
-                        <label className="form-check-label">HTML</label>
-                      </div>
-
-                      <div className="form-check">
-                        <input className="form-check-input" type="checkbox" />
-                        <label className="form-check-label">CSS</label>
-                      </div>
-
-                      <div className="form-check">
-                        <input className="form-check-input" type="checkbox" />
-                        <label className="form-check-label">JavaScript</label>
-                      </div>
+                      {['HTML', 'CSS', 'JavaScript'].map((skill) => (
+                        <div className="form-check" key={skill}>
+                          <input
+                            className="form-check-input"
+                            type="checkbox"
+                            checked={formData.competences.includes(skill)}
+                            onChange={() => handleCheckbox(skill)}
+                          />
+                          <label className="form-check-label">{skill}</label>
+                        </div>
+                      ))}
                     </div>
 
                     <div className="col-12">
                       <label className="form-label">Notes Supplémentaires</label>
                       <textarea
                         className="form-control"
+                        name="notes"
                         rows="4"
                         placeholder="Votre message..."
+                        value={formData.notes}
+                        onChange={handleChange}
                       ></textarea>
                     </div>
 
                     <div className="col-12">
                       <div className="form-check">
-                        <input className="form-check-input" type="checkbox" />
+                        <input
+                          className="form-check-input"
+                          type="checkbox"
+                          checked={acceptTerms}
+                          onChange={(e) => setAcceptTerms(e.target.checked)}
+                        />
                         <label className="form-check-label">
                           J'accepte les termes et conditions
                         </label>
@@ -149,14 +219,26 @@ export default function JoinUs() {
                     </div>
                   </div>
 
+                  {/* STATUS MESSAGES */}
+                  {status === 'success' && (
+                    <div className="alert alert-success mt-4 text-center">
+                      Votre inscription a été envoyée avec succès !
+                    </div>
+                  )}
+                  {status === 'error' && (
+                    <div className="alert alert-danger mt-4 text-center">
+                      Erreur : {errorMsg}
+                    </div>
+                  )}
+
                   {/* BOUTONS */}
                   <div className="d-flex justify-content-between mt-5">
-                    <button type="reset" className="btn btn-outline-secondary px-4">
+                    <button type="button" className="btn btn-outline-secondary px-4" onClick={handleReset}>
                       Réinitialiser
                     </button>
 
-                    <button type="submit" className="btn btn-primary px-4">
-                      S'inscrire
+                    <button type="submit" className="btn btn-primary px-4" disabled={status === 'sending'}>
+                      {status === 'sending' ? 'Envoi en cours...' : "S'inscrire"}
                     </button>
                   </div>
 

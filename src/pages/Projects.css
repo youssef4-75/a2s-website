@@ -78,20 +78,20 @@
     max-width: 80rem;
     /* 7xl */
     margin: 0 auto;
-    padding: 3rem 1rem;
+    padding: 3rem 5%;
 }
 
 @media (min-width: 640px) {
     .projects-container {
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
+        padding-left: 5%;
+        padding-right: 5%;
     }
 }
 
 @media (min-width: 1024px) {
     .projects-container {
-        padding-left: 2rem;
-        padding-right: 2rem;
+        padding-left: 4%;
+        padding-right: 4%;
     }
 }
 
@@ -363,7 +363,7 @@
 /* --- More Projects Section (Grid) --- */
 .more-projects-section {
     background-color: var(--bg-light);
-    padding: 5rem 0;
+    padding: 5vh 0;
     border-top: 1px solid #e2e8f0;
 }
 

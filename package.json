@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "description": "A2S Junior Entreprise Website - INPT",
     "private": true,
+    "type": "module",
     "dependencies": {
         "bootstrap": "^5.3.8",
         "lucide-react": "^0.263.1",

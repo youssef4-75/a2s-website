@@ -6,17 +6,17 @@ export default function TeamPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero */}
-      <section className="py-24 px-4 bg-gradient-to-br from-blue-900 via-blue-700 to-cyan-600 text-white text-center">
-        <h1 className="text-4xl md:text-6xl font-bold mb-4">Notre Équipe de Bureau</h1>
+      <section className="py-[5vh] md:py-[7vh] px-[5%] bg-gradient-to-br from-blue-900 via-blue-700 to-cyan-600 text-white text-center">
+        <h1 className="text-4xl md:text-6xl font-bold mb-[2%]">Notre Équipe de Bureau</h1>
         <p className="text-xl text-blue-100 max-w-2xl mx-auto">
           Rencontrez les membres qui pilotent A2S et donnent vie à notre Junior-Entreprise.
         </p>
       </section>
 
       {/* Team Grid */}
-      <section className="py-20 px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+      <section className="py-[5vh] md:py-[7vh] px-[5%]">
+        <div className="w-full max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[3%]">
             {team.map((member) => (
               <div
                 key={member.id}

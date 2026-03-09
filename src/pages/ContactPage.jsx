@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Star } from 'lucide-react';
 
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyoOIEE2K0AH0PAbAfZJFpT303q_nv79SSSmq6fJIwnMKEmFGf52gQUU0sVdgjYgr8Mdw/exec';
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzAbVhk-tAc6k2w4QWmh_BQxVMZYDe1gTygvX88eCSVw2JI-KtP16lVDowGXQiL9Nzm/exec';
 
 export default function ContactPage() {
     const [formData, setFormData] = useState({
@@ -26,12 +26,8 @@ export default function ContactPage() {
         setErrorMsg('');
 
         try {
-            await fetch(SCRIPT_URL, {
-                method: 'POST',
-                mode: 'no-cors',
-                headers: { 'Content-Type': 'text/plain' },
-                body: JSON.stringify(formData),
-            });
+            const params = new URLSearchParams({ formulaire: 'contact', ...formData });
+            await fetch(`${SCRIPT_URL}?${params.toString()}`, { mode: 'no-cors' });
             setStatus('success');
             setFormData({ name: '', email: '', phone: '', message: '' });
         } catch (error) {
@@ -41,29 +37,29 @@ export default function ContactPage() {
     };
 
     return (
-        <div className="bg-white font-sans text-[#111827] antialiased transition-colors duration-200 min-h-screen flex flex-col">
+        <div className="bg-white font-sans text-[#111827] antialiased min-h-screen">
 
-            {/* Header Placeholder */}
-            <div style={{ height: '80px' }}></div>
+            {/* Header spacer - responsive */}
+            <div className="pt-20 md:pt-24"></div>
 
-            <main className="max-w-7xl mx-auto px-6 md:px-12 pb-24 flex-grow w-full">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+            <main className="w-[92%] max-w-7xl mx-auto pb-[5vh]">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-[5%] items-start">
 
                     {/* Left Column: Text & Info */}
-                    <div className="space-y-8 pt-4">
-                        <div className="space-y-4">
+                    <div className="space-y-[5%] pt-[2%]">
+                        <div className="space-y-[3%]">
                             <span className="inline-block py-1 px-3 rounded-full bg-blue-50 text-[#1e54c6] text-xs font-bold uppercase tracking-wider">
                                 Contactez-nous
                             </span>
-                            <h1 className="text-4xl md:text-5xl font-bold text-[#111827] leading-tight">
+                            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#111827] leading-tight">
                                 A2S Junior Entreprise
                             </h1>
-                            <p className="text-lg text-[#6b7280] leading-relaxed">
+                            <p className="text-base sm:text-lg text-[#6b7280] leading-relaxed">
                                 A2S (Actions Services et Solutions) est la Junior-Entreprise de l'INPT. Nous accompagnons les professionnels dans leurs projets informatiques, télécoms et technologiques en mettant à leur disposition l'expertise de nos élèves-ingénieurs. N'hésitez pas à nous contacter pour toute demande de devis ou de collaboration.
                             </p>
                         </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-[4%]">
                             <div className="flex items-start space-x-3">
                                 <div className="flex-shrink-0 w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-[#1e54c6]">
                                     <Mail size={20} />
@@ -85,7 +81,7 @@ export default function ContactPage() {
                         </div>
 
                         {/* Map Iframe Card */}
-                        <div className="relative w-full h-80 bg-gray-200 rounded-2xl overflow-hidden shadow-[0_4px_20px_-2px_rgba(0,0,0,0.05)] border border-gray-100 group">
+                        <div className="relative w-full aspect-[16/10] min-h-[200px] bg-gray-200 rounded-2xl overflow-hidden shadow-[0_4px_20px_-2px_rgba(0,0,0,0.05)] border border-gray-100 group">
                             <iframe
                                 title="INPT Map Location"
                                 src="https://maps.google.com/maps?q=inpt&t=m&z=15&output=embed&iwloc=near"
@@ -94,7 +90,7 @@ export default function ContactPage() {
                                 loading="lazy"
                                 referrerPolicy="no-referrer-when-downgrade"
                             ></iframe>
-                            <div className="absolute top-4 left-4 bg-white p-4 rounded-lg shadow-md max-w-xs border border-gray-100 z-10 w-fit">
+                            <div className="absolute top-[5%] left-[5%] bg-white p-[4%] rounded-lg shadow-md max-w-xs border border-gray-100 z-10 w-fit">
                                 <h4 className="font-bold text-sm text-[#111827] mb-2">Institut National des Postes et Télécommunications</h4>
                                 <a className="text-xs text-[#1e54c6] font-medium hover:underline" href="https://maps.google.com/?q=INPT+Rabat" target="_blank" rel="noreferrer">Voir la carte en grand</a>
                             </div>
@@ -102,14 +98,14 @@ export default function ContactPage() {
                     </div>
 
                     {/* Right Column: Form */}
-                    <div className="bg-white p-8 md:p-10 rounded-2xl shadow-[0_4px_20px_-2px_rgba(0,0,0,0.05)] border border-gray-100">
-                        <form onSubmit={handleSubmit} className="space-y-6">
+                    <div className="bg-white p-[5%] md:p-[6%] rounded-2xl shadow-[0_4px_20px_-2px_rgba(0,0,0,0.05)] border border-gray-100">
+                        <form onSubmit={handleSubmit} className="space-y-[5%]">
                             <div className="space-y-2">
                                 <label className="block text-sm font-medium text-[#111827]" htmlFor="name">
                                     Nom <span className="text-red-500">*</span>
                                 </label>
                                 <input
-                                    className="w-full px-4 py-3 rounded-lg bg-white border border-[#e5e7eb] focus:border-[#1e54c6] focus:ring-2 focus:ring-[#1e54c6]/20 outline-none transition-all placeholder-gray-400 text-[#111827]"
+                                    className="w-full px-[4%] py-3 rounded-lg bg-white border border-[#e5e7eb] focus:border-[#1e54c6] focus:ring-2 focus:ring-[#1e54c6]/20 outline-none transition-all placeholder-gray-400 text-[#111827]"
                                     id="name"
                                     name="name"
                                     placeholder="Votre nom"
@@ -124,7 +120,7 @@ export default function ContactPage() {
                                     E-mail <span className="text-red-500">*</span>
                                 </label>
                                 <input
-                                    className="w-full px-4 py-3 rounded-lg bg-white border border-[#e5e7eb] focus:border-[#1e54c6] focus:ring-2 focus:ring-[#1e54c6]/20 outline-none transition-all placeholder-gray-400 text-[#111827]"
+                                    className="w-full px-[4%] py-3 rounded-lg bg-white border border-[#e5e7eb] focus:border-[#1e54c6] focus:ring-2 focus:ring-[#1e54c6]/20 outline-none transition-all placeholder-gray-400 text-[#111827]"
                                     id="email"
                                     name="email"
                                     placeholder="Votre e-mail"
@@ -139,7 +135,7 @@ export default function ContactPage() {
                                     Téléphone <span className="text-red-500">*</span>
                                 </label>
                                 <input
-                                    className="w-full px-4 py-3 rounded-lg bg-white border border-[#e5e7eb] focus:border-[#1e54c6] focus:ring-2 focus:ring-[#1e54c6]/20 outline-none transition-all placeholder-gray-400 text-[#111827]"
+                                    className="w-full px-[4%] py-3 rounded-lg bg-white border border-[#e5e7eb] focus:border-[#1e54c6] focus:ring-2 focus:ring-[#1e54c6]/20 outline-none transition-all placeholder-gray-400 text-[#111827]"
                                     id="phone"
                                     name="phone"
                                     placeholder="Votre numéro de téléphone"
@@ -154,7 +150,7 @@ export default function ContactPage() {
                                     Message <span className="text-red-500">*</span>
                                 </label>
                                 <textarea
-                                    className="w-full px-4 py-3 rounded-lg bg-white border border-[#e5e7eb] focus:border-[#1e54c6] focus:ring-2 focus:ring-[#1e54c6]/20 outline-none transition-all resize-none placeholder-gray-400 text-[#111827]"
+                                    className="w-full px-[4%] py-3 rounded-lg bg-white border border-[#e5e7eb] focus:border-[#1e54c6] focus:ring-2 focus:ring-[#1e54c6]/20 outline-none transition-all resize-none placeholder-gray-400 text-[#111827]"
                                     id="message"
                                     name="message"
                                     placeholder="Votre message"
@@ -164,13 +160,15 @@ export default function ContactPage() {
                                     required
                                 ></textarea>
                             </div>
-                            <button
-                                className="w-full py-4 px-6 bg-[#1e54c6] hover:bg-[#16419e] text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#1e54c6] disabled:opacity-50 disabled:cursor-not-allowed"
-                                type="submit"
-                                disabled={status === 'sending'}
-                            >
-                                {status === 'sending' ? 'Envoi en cours...' : 'Envoyer le message'}
-                            </button>
+                            <div className="w-full">
+                                <button
+                                    className="w-full py-4 px-[5%] bg-[#1e54c6] hover:bg-[#16419e] text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#1e54c6] disabled:opacity-50 disabled:cursor-not-allowed"
+                                    type="submit"
+                                    disabled={status === 'sending'}
+                                >
+                                    {status === 'sending' ? 'Envoi en cours...' : 'Envoyer le message'}
+                                </button>
+                            </div>
                             {status === 'success' && (
                                 <p className="text-green-600 text-sm font-medium text-center mt-2">
                                     Votre message a été envoyé avec succès !
@@ -185,12 +183,6 @@ export default function ContactPage() {
                     </div>
                 </div>
             </main>
-
-            <footer className="border-t border-gray-200 bg-white py-8 w-full">
-                <div className="max-w-7xl mx-auto px-6 text-center text-sm text-[#6b7280]">
-                    © 2024 Association Avenir d'Ingénieur en Services et Solutions (A2S) - INPT. Tous droits réservés.
-                </div>
-            </footer>
         </div>
     );
 }

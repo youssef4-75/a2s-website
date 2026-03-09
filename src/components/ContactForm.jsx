@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyoOIEE2K0AH0PAbAfZJFpT303q_nv79SSSmq6fJIwnMKEmFGf52gQUU0sVdgjYgr8Mdw/exec';
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzAbVhk-tAc6k2w4QWmh_BQxVMZYDe1gTygvX88eCSVw2JI-KtP16lVDowGXQiL9Nzm/exec';
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -18,17 +18,15 @@ export default function ContactForm() {
     setErrorMsg('');
 
     try {
-      await fetch(SCRIPT_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'text/plain' },
-        body: JSON.stringify({
-          name: formData.nom,
-          email: formData.email,
-          sujet: formData.sujet,
-          message: formData.message,
-        }),
+      const params = new URLSearchParams({
+        formulaire: 'devis',
+        name: formData.nom,
+        email: formData.email,
+        sujet: formData.sujet,
+        message: formData.message,
       });
+
+      await fetch(`${SCRIPT_URL}?${params.toString()}`, { mode: 'no-cors' });
       setStatus('success');
       setFormData({ nom: '', email: '', sujet: '', message: '' });
     } catch (error) {

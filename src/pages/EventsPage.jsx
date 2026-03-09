@@ -3,8 +3,8 @@ import { events } from '../data/events';
 
 export default function EventsPage() {
   return (
-    <section id="evenements" className="pt-28 pb-20 px-4 bg-gradient-to-br from-gray-50 to-blue-50 min-h-screen">
-      <div className="max-w-7xl mx-auto">
+    <section id="evenements" className="pt-24 md:pt-28 pb-[5vh] px-[5%] bg-gradient-to-br from-gray-50 to-blue-50 min-h-screen">
+      <div className="w-full max-w-7xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-4">
           Nos Événements
         </h2>
@@ -12,11 +12,11 @@ export default function EventsPage() {
           Des opportunités de développement et de networking
         </p>
 
-        <div className="space-y-16">
+        <div className="space-y-[5vh]">
           {events.map((event, index) => (
             <div 
               key={index}
-              className={`grid md:grid-cols-2 gap-8 items-center ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}
+              className={`grid md:grid-cols-2 gap-[4%] items-center ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}
             >
               <div className={`${index % 2 === 1 ? 'md:order-2' : ''}`}>
                 <div className="relative group">

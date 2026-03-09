@@ -82,35 +82,39 @@ export default function HomePage() {
 
         <div className="relative z-10 w-full flex flex-col lg:flex-row items-center">
           {/* Left Content */}
-          <div className="w-full lg:w-1/2 text-center lg:text-left px-6 md:px-12 lg:px-16 py-12">
+          <div className="w-full lg:w-1/2 text-center lg:text-left px-[5%] md:px-[6%] lg:px-[4%] py-[3vh]">
             <img 
               src="/assets/A2S Logo (1).png"
               alt="A2S Logo" 
-              className="mx-auto lg:mx-0 mb-4 sm:mb-6 w-28 h-28 sm:w-40 sm:h-40"
+              className="mx-auto lg:mx-0 mb-[2%] w-[20%] min-w-[5rem] max-w-[10rem] aspect-square"
             />
-            <h2 className="text-xl sm:text-2xl md:text-4xl text-blue-200 mb-6 sm:mb-8 font-light">
+            <h2 className="text-xl sm:text-2xl md:text-4xl text-blue-200 mb-[3%] font-light">
               Junior Entreprise
             </h2>
-            <p className="text-base sm:text-xl md:text-2xl text-white mb-8 sm:mb-12 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+            <p className="text-base sm:text-xl md:text-2xl text-white mb-[5%] max-w-xl mx-auto lg:mx-0 leading-relaxed">
               <strong style={{ color: '#00B6FF' }}>A2S</strong> est la Junior-Entreprise de l'INPT, une école leader en matière de développement et de technologies d'information
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
-              <Link
-                to="/contact"
-                className="bg-[#00B6FF] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-sm sm:text-base hover:bg-[#0099cc] hover:shadow-2xl transition-all transform hover:scale-105 flex items-center justify-center gap-2"
-              >
-                <FileText size={18} />
-                Avoir un Devis
-              </Link>
-              <a
-                href="https://drive.google.com/file/d/175K5NsKZIkT6L8j9TGQApxSOL6S0_sos/view"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-transparent border-2 border-white text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-sm sm:text-base transition-all transform hover:scale-105 flex items-center justify-center gap-2 hover:bg-[#00B6FF] hover:border-[#00B6FF]"
-              >
-                <FileText size={20} />
-                Télécharger notre Plaquette
-              </a>
+            <div className="flex flex-col sm:flex-row gap-[3%] w-full justify-center lg:justify-start">
+              <div className="w-full sm:w-[48%] lg:w-auto">
+                <Link
+                  to="/contact"
+                  className="w-full bg-[#00B6FF] text-white px-[5%] sm:px-8 py-[3%] sm:py-4 rounded-full font-semibold text-sm sm:text-base hover:bg-[#0099cc] hover:shadow-2xl transition-all transform hover:scale-105 flex items-center justify-center gap-2"
+                >
+                  <FileText size={18} />
+                  Avoir un Devis
+                </Link>
+              </div>
+              <div className="w-full sm:w-[48%] lg:w-auto">
+                <a
+                  href="https://drive.google.com/file/d/175K5NsKZIkT6L8j9TGQApxSOL6S0_sos/view"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full bg-transparent border-2 border-white text-white px-[5%] sm:px-8 py-[3%] sm:py-4 rounded-full font-semibold text-sm sm:text-base transition-all transform hover:scale-105 flex items-center justify-center gap-2 hover:bg-[#00B6FF] hover:border-[#00B6FF]"
+                >
+                  <FileText size={20} />
+                  Télécharger notre Plaquette
+                </a>
+              </div>
             </div>
           </div>
 
@@ -167,8 +171,8 @@ export default function HomePage() {
       </section>
 
 {/* About Section */}
-      <section id="apropos" className="py-20 px-4 bg-gray-50">
-        <div className="max-w-6xl mx-auto">
+      <section id="apropos" className="py-[5vh] md:py-[7vh] px-[5%] bg-gray-50">
+        <div className="w-full max-w-6xl mx-auto">
           {/* On retire les gap ici et on laisse les éléments se placer naturellement */}
           <div className="flex flex-col md:flex-row items-stretch gap-8">
             
@@ -255,8 +259,8 @@ export default function HomePage() {
       </section>
 
       {/* Services / Projects Section (Nouveau) */}
-      <section id="services" className="py-20 px-4 bg-white">
-        <div className="max-w-7xl mx-auto">
+      <section id="services" className="py-[5vh] md:py-[7vh] px-[5%] bg-white">
+        <div className="w-full max-w-7xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-4">
             Nos Domaines de Compétences
           </h2>
@@ -264,7 +268,7 @@ export default function HomePage() {
             Des solutions professionnelles adaptées à vos besoins
           </p>
 
-          <div className="flex flex-wrap justify-center gap-8 max-w-6xl mx-auto px-4">
+          <div className="flex flex-wrap justify-center gap-[2%] max-w-6xl mx-auto px-[2%]">
             {services.map((service, index) => (
               <Link
                 to={`/services/${service.id}`}
@@ -298,8 +302,8 @@ export default function HomePage() {
       </section>
 
       {/* Contact Section intégrée à la page d'accueil */}
-      <section id="contact" className="py-20 px-4 bg-gradient-to-br from-gray-900 to-blue-900">
-        <div className="max-w-6xl mx-auto">
+      <section id="contact" className="py-[5vh] md:py-[7vh] px-[5%] bg-gradient-to-br from-gray-900 to-blue-900">
+        <div className="w-full max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12">
             <div className="text-white">
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
