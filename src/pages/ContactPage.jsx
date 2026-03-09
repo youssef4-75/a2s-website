@@ -28,6 +28,8 @@ export default function ContactPage() {
         try {
             await fetch(SCRIPT_URL, {
                 method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'text/plain' },
                 body: JSON.stringify(formData),
             });
             setStatus('success');
