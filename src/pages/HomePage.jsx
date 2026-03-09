@@ -268,12 +268,12 @@ export default function HomePage() {
             Des solutions professionnelles adaptées à vos besoins
           </p>
 
-          <div className="flex flex-wrap justify-center gap-[2%] max-w-6xl mx-auto px-[2%]">
+          <div className="flex flex-wrap justify-center gap-8 max-w-6xl mx-auto px-[2%]">
             {services.map((service, index) => (
               <Link
                 to={`/services/${service.id}`}
                 key={service.id}
-                className="w-full sm:w-[48%] lg:w-[30%]
+                className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.35rem)]
                            group relative overflow-hidden rounded-2xl
                            shadow-lg hover:shadow-2xl
                            transition-all duration-300
