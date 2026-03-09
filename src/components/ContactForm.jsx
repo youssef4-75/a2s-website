@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { CONTACT_EMAIL } from '../constants';
+
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyoOIEE2K0AH0PAbAfZJFpT303q_nv79SSSmq6fJIwnMKEmFGf52gQUU0sVdgjYgr8Mdw/exec';
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -8,11 +9,30 @@ export default function ContactForm() {
     sujet: '',
     message: ''
   });
+  const [status, setStatus] = useState('idle');
+  const [errorMsg, setErrorMsg] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const mailtoLink = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(formData.sujet)}&body=${encodeURIComponent(`Nom: ${formData.nom}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`)}`;
-    window.location.href = mailtoLink;
+    setStatus('sending');
+    setErrorMsg('');
+
+    try {
+      await fetch(SCRIPT_URL, {
+        method: 'POST',
+        body: JSON.stringify({
+          name: formData.nom,
+          email: formData.email,
+          sujet: formData.sujet,
+          message: formData.message,
+        }),
+      });
+      setStatus('success');
+      setFormData({ nom: '', email: '', sujet: '', message: '' });
+    } catch (error) {
+      setStatus('error');
+      setErrorMsg(error.message || 'Une erreur est survenue.');
+    }
   };
 
   const handleChange = (e) => {
@@ -76,10 +96,21 @@ export default function ContactForm() {
         </div>
         <button 
           type="submit"
-          className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white py-3 rounded-lg font-semibold hover:shadow-lg transition-all transform hover:scale-105"
+          disabled={status === 'sending'}
+          className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white py-3 rounded-lg font-semibold hover:shadow-lg transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          Envoyer
+          {status === 'sending' ? 'Envoi en cours...' : 'Envoyer'}
         </button>
+        {status === 'success' && (
+          <p className="text-green-600 text-sm font-medium text-center">
+            Votre message a été envoyé avec succès !
+          </p>
+        )}
+        {status === 'error' && (
+          <p className="text-red-600 text-sm font-medium text-center">
+            Erreur : {errorMsg}
+          </p>
+        )}
       </form>
     </div>
   );

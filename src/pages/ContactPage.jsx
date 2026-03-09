@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Star } from 'lucide-react';
 
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyoOIEE2K0AH0PAbAfZJFpT303q_nv79SSSmq6fJIwnMKEmFGf52gQUU0sVdgjYgr8Mdw/exec';
+
 export default function ContactPage() {
     const [formData, setFormData] = useState({
         name: '',
@@ -8,6 +10,8 @@ export default function ContactPage() {
         phone: '',
         message: ''
     });
+    const [status, setStatus] = useState('idle'); // idle | sending | success | error
+    const [errorMsg, setErrorMsg] = useState('');
 
     const handleChange = (e) => {
         setFormData({
@@ -16,11 +20,22 @@ export default function ContactPage() {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        const bodyContent = `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\nMessage:\n${formData.message}`;
-        const mailtoLink = `mailto:a2s.bureau@gmail.com?subject=${encodeURIComponent("Nouveau message contact")}&body=${encodeURIComponent(bodyContent)}`;
-        window.location.href = mailtoLink;
+        setStatus('sending');
+        setErrorMsg('');
+
+        try {
+            await fetch(SCRIPT_URL, {
+                method: 'POST',
+                body: JSON.stringify(formData),
+            });
+            setStatus('success');
+            setFormData({ name: '', email: '', phone: '', message: '' });
+        } catch (error) {
+            setStatus('error');
+            setErrorMsg(error.message || 'Une erreur est survenue.');
+        }
     };
 
     return (
@@ -147,9 +162,23 @@ export default function ContactPage() {
                                     required
                                 ></textarea>
                             </div>
-                            <button className="w-full py-4 px-6 bg-[#1e54c6] hover:bg-[#16419e] text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#1e54c6]" type="submit">
-                                Envoyer le message
+                            <button
+                                className="w-full py-4 px-6 bg-[#1e54c6] hover:bg-[#16419e] text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#1e54c6] disabled:opacity-50 disabled:cursor-not-allowed"
+                                type="submit"
+                                disabled={status === 'sending'}
+                            >
+                                {status === 'sending' ? 'Envoi en cours...' : 'Envoyer le message'}
                             </button>
+                            {status === 'success' && (
+                                <p className="text-green-600 text-sm font-medium text-center mt-2">
+                                    Votre message a été envoyé avec succès !
+                                </p>
+                            )}
+                            {status === 'error' && (
+                                <p className="text-red-600 text-sm font-medium text-center mt-2">
+                                    Erreur : {errorMsg}
+                                </p>
+                            )}
                         </form>
                     </div>
                 </div>
