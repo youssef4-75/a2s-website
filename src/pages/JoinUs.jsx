@@ -1,8 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useState } from "react";
 
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzAbVhk-tAc6k2w4QWmh_BQxVMZYDe1gTygvX88eCSVw2JI-KtP16lVDowGXQiL9Nzm/exec';
-
 const initialFormData = {
   formulaire: 'join_us',
   nom: '',
@@ -42,30 +40,16 @@ export default function JoinUs() {
     setErrorMsg('');
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (!acceptTerms) {
       setStatus('error');
       setErrorMsg('Veuillez accepter les termes et conditions.');
       return;
     }
-    setStatus('sending');
-    setErrorMsg('');
-
-    try {
-      const params = new URLSearchParams({
-        ...formData,
-        competences: formData.competences.join(', '),
-      });
-
-      await fetch(`${SCRIPT_URL}?${params.toString()}`, { mode: 'no-cors' });
-      setStatus('success');
-      setFormData(initialFormData);
-      setAcceptTerms(false);
-    } catch (error) {
-      setStatus('error');
-      setErrorMsg(error.message || 'Une erreur est survenue.');
-    }
+    setStatus('success');
+    setFormData(initialFormData);
+    setAcceptTerms(false);
   };
 
   return (

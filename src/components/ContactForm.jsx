@@ -1,38 +1,19 @@
 import React, { useState } from 'react';
 
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzAbVhk-tAc6k2w4QWmh_BQxVMZYDe1gTygvX88eCSVw2JI-KtP16lVDowGXQiL9Nzm/exec';
-
 export default function ContactForm() {
   const [formData, setFormData] = useState({
-    nom: '',
+    name: '',
     email: '',
-    sujet: '',
+    phone: '',
     message: ''
   });
   const [status, setStatus] = useState('idle');
   const [errorMsg, setErrorMsg] = useState('');
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setStatus('sending');
-    setErrorMsg('');
-
-    try {
-      const params = new URLSearchParams({
-        formulaire: 'devis',
-        name: formData.nom,
-        email: formData.email,
-        sujet: formData.sujet,
-        message: formData.message,
-      });
-
-      await fetch(`${SCRIPT_URL}?${params.toString()}`, { mode: 'no-cors' });
-      setStatus('success');
-      setFormData({ nom: '', email: '', sujet: '', message: '' });
-    } catch (error) {
-      setStatus('error');
-      setErrorMsg(error.message || 'Une erreur est survenue.');
-    }
+    setStatus('success');
+    setFormData({ name: '', email: '', phone: '', message: '' });
   };
 
   const handleChange = (e) => {
@@ -47,12 +28,12 @@ export default function ContactForm() {
       <h3 className="text-3xl font-bold text-gray-900 mb-6">Contactez-nous</h3>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label htmlFor="nom" className="block text-sm font-semibold text-gray-700 mb-2">Nom</label>
+          <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">Nom</label>
           <input 
             type="text" 
-            id="nom" 
-            name="nom"
-            value={formData.nom}
+            id="name" 
+            name="name"
+            value={formData.name}
             onChange={handleChange}
             required
             className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
@@ -71,14 +52,15 @@ export default function ContactForm() {
           />
         </div>
         <div>
-          <label htmlFor="sujet" className="block text-sm font-semibold text-gray-700 mb-2">Sujet</label>
+          <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-2">Téléphone</label>
           <input 
-            type="text" 
-            id="sujet" 
-            name="sujet"
-            value={formData.sujet}
+            type="tel" 
+            id="phone" 
+            name="phone"
+            value={formData.phone}
             onChange={handleChange}
             required
+            placeholder="+212 6XXXXXXXX"
             className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
           />
         </div>

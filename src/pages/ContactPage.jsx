@@ -26,13 +26,30 @@ export default function ContactPage() {
         setErrorMsg('');
 
         try {
-            const params = new URLSearchParams({ formulaire: 'contact', ...formData });
-            await fetch(`${SCRIPT_URL}?${params.toString()}`, { mode: 'no-cors' });
-            setStatus('success');
-            setFormData({ name: '', email: '', phone: '', message: '' });
+            const response = await fetch(SCRIPT_URL, {
+                method: 'POST',
+                headers: {
+                    // L'utilisation de text/plain évite le blocage CORS de Google
+                    'Content-Type': 'text/plain;charset=utf-8',
+                },
+                // On envoie les données formatées en JSON
+                body: JSON.stringify(formData)
+            });
+
+            const result = await response.json();
+
+            // Google Apps Script renvoie souvent result ou status selon comment tu l'as codé
+            if (result.status === "success" || result.result === "success") {
+                setStatus('success');
+                // On vide le formulaire après succès
+                setFormData({ name: '', email: '', phone: '', message: '' });
+            } else {
+                throw new Error("Le script Google a renvoyé une erreur.");
+            }
         } catch (error) {
+            console.error("Erreur lors de la requête :", error);
             setStatus('error');
-            setErrorMsg(error.message || 'Une erreur est survenue.');
+            setErrorMsg('Une erreur est survenue lors de l\'envoi. Veuillez réessayer.');
         }
     };
 
@@ -176,7 +193,7 @@ export default function ContactPage() {
                             )}
                             {status === 'error' && (
                                 <p className="text-red-600 text-sm font-medium text-center mt-2">
-                                    Erreur : {errorMsg}
+                                    {errorMsg}
                                 </p>
                             )}
                         </form>
