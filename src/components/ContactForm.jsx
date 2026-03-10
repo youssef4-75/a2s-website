@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzAbVhk-tAc6k2w4QWmh_BQxVMZYDe1gTygvX88eCSVw2JI-KtP16lVDowGXQiL9Nzm/exec';
+
 export default function ContactForm() {
   const [formData, setFormData] = useState({
     name: '',
@@ -10,10 +12,30 @@ export default function ContactForm() {
   const [status, setStatus] = useState('idle');
   const [errorMsg, setErrorMsg] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setStatus('success');
-    setFormData({ name: '', email: '', phone: '', message: '' });
+    setStatus('sending');
+    setErrorMsg('');
+
+    try {
+      await fetch(SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify({
+          formulaire: 'contact',
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+        }),
+      });
+      setStatus('success');
+      setFormData({ name: '', email: '', phone: '', message: '' });
+    } catch (error) {
+      setStatus('error');
+      setErrorMsg(error.message || 'Une erreur est survenue.');
+    }
   };
 
   const handleChange = (e) => {
