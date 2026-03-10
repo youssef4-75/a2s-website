@@ -46,7 +46,7 @@ export const team = [
     id: 6,
     name: 'Ertil Riyad',
     role: 'Cellule Prospection',
-    image: 'https://media.licdn.com/dms/image/v2/D4E03AQFQ2ZatS_Ba9A/profile-displayphoto-scale_400_400/B4EZy3uhjOJwAk-/0/1772608954438?e=1774483200&v=beta&t=zS2fBZMKs3Qy61hvO4YivA54W8wAtKuWjULMwIJjG34',
+    image: 'https://media.licdn.com/dms/image/v2/D4E03AQHTQXlouJzUhQ/profile-displayphoto-scale_400_400/B4EZzRQIVdGcAg-/0/1773037194363?e=1774483200&v=beta&t=gmnVg-5tcxghcmc9eIFglS1VkeHfZ6qPsQoDoFkRRGA',
     linkedin: 'https://www.linkedin.com/in/ertil-riyad-b9682331b/',
   },
   {
