@@ -32,7 +32,7 @@ export const team = [
     id: 4,
     name: 'Sajia Hafssa',
     role: 'Trésorière',
-    image: 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7',
+    image: '/assets/WhatsApp Image 2026-03-10 at 18.35.43.jpeg',
     linkedin: 'https://www.linkedin.com/in/hafssa-sajia-30b285332/',
   },
     {

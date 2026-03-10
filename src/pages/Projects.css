@@ -2,21 +2,13 @@
 
 /* --- variables for A2S colors --- */
 :root {
-    --primary-blue: #1d4ed8;
-    /* Blue-700 */
-    --primary-dark: #1e40af;
-    /* Blue-800 */
-    --text-dark: #0f172a;
-    /* Slate-900 */
-    --text-grey: #475569;
-    /* Slate-600 */
-    --bg-light: #f8fafc;
-    /* Slate-50 */
-    --gradient-start: #0ea5e9;
-    /* Sky-500 */
-    --gradient-end: #2563eb;
-    /* Blue-600 */
-    /* Blue-600 */
+    --primary-blue: #1e54c6;
+    --primary-dark: #1642a8;
+    --text-dark: #111827;
+    --text-grey: #6b7280;
+    --bg-light: #f9fafb;
+    --gradient-start: #1e54c6;
+    --gradient-end: #1642a8;
 }
 
 /* --- Animations --- */
@@ -70,8 +62,6 @@
 .projects-page {
     min-height: 100vh;
     background-color: white;
-    font-family: 'Inter', system-ui, sans-serif;
-    /* Ensuring specific font if needed, or inherit */
 }
 
 .projects-container {
@@ -262,8 +252,7 @@
 
 .meta-icon {
     margin-right: 0.25rem;
-    color: #3b82f6;
-    /* blue-500 */
+    color: #1e54c6;
 }
 
 .featured-title {
@@ -329,17 +318,15 @@
     height: 2.5rem;
     border-radius: 9999px;
     background-color: #eff6ff;
-    /* blue-50 */
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #2563eb;
-    /* blue-600 */
+    color: #1e54c6;
     transition: all 0.3s;
 }
 
 .featured-project-card:hover .arrow-btn {
-    background-color: #2563eb;
+    background-color: #1e54c6;
     color: white;
     transform: scale(1.1);
 }
@@ -511,8 +498,7 @@
 }
 
 .project-card:hover .card-title {
-    color: #2563eb;
-    /* blue-600 */
+    color: #1e54c6;
 }
 
 .card-desc {
@@ -538,7 +524,7 @@
 .read-case-study {
     font-size: 0.875rem;
     font-weight: 600;
-    color: #2563eb;
+    color: #1e54c6;
     cursor: pointer;
 }
 
@@ -553,7 +539,7 @@
 }
 
 .project-card:hover .card-arrow {
-    color: #2563eb;
+    color: #1e54c6;
 }
 
 /* --- Start Project CTA Card --- */
@@ -561,7 +547,7 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-    background-image: linear-gradient(to bottom right, #2563eb, #1e40af);
+    background-image: linear-gradient(to bottom right, #1e54c6, #1642a8);
     border-radius: 1rem;
     overflow: hidden;
     box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
@@ -607,8 +593,7 @@
 
 .get-in-touch-btn {
     background-color: white;
-    color: #1d4ed8;
-    /* blue-700 */
+    color: #1e54c6;
     padding: 0.5rem 1.5rem;
     border-radius: 9999px;
     font-weight: 700;

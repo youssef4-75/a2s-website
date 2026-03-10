@@ -66,8 +66,8 @@ export default function ProjectsPage() {
                         onClick={() => setActiveFilter('all')}
                         className={`px-5 py-2 rounded-full text-sm font-semibold transition-all ${
                             activeFilter === 'all'
-                                ? 'bg-blue-600 text-white shadow-lg'
-                                : 'bg-white text-slate-600 border border-slate-200 hover:border-blue-400 hover:text-blue-600'
+                                ? 'bg-[#1e54c6] text-white shadow-lg'
+                                : 'bg-white text-[#6b7280] border border-gray-200 hover:border-[#1e54c6] hover:text-[#1e54c6]'
                         }`}
                     >
                         Tous
@@ -78,8 +78,8 @@ export default function ProjectsPage() {
                             onClick={() => setActiveFilter(service.id)}
                             className={`px-5 py-2 rounded-full text-sm font-semibold transition-all ${
                                 activeFilter === service.id
-                                    ? 'bg-blue-600 text-white shadow-lg'
-                                    : 'bg-white text-slate-600 border border-slate-200 hover:border-blue-400 hover:text-blue-600'
+                                    ? 'bg-[#1e54c6] text-white shadow-lg'
+                                    : 'bg-white text-[#6b7280] border border-gray-200 hover:border-[#1e54c6] hover:text-[#1e54c6]'
                             }`}
                         >
                             {service.title}

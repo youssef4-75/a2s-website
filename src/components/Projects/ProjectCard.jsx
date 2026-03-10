@@ -16,7 +16,7 @@ export default function ProjectCard({ image = '', title = '', category = '', dat
                     alt={title}
                     className="card-image"
                 />
-                    <div className="card-badge" style={{ background: 'linear-gradient(to right, #2563eb, #0ea5e9)', color: 'white' }}>
+                    <div className="card-badge" style={{ background: 'linear-gradient(to right, #1e54c6, #1642a8)', color: 'white' }}>
                         {serviceId ? (
                             <Link to={`/services/${serviceId}`} className="hover:underline" onClick={e => e.stopPropagation()}>
                                 {category}
