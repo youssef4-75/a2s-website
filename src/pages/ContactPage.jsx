@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Star } from 'lucide-react';
 
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzAbVhk-tAc6k2w4QWmh_BQxVMZYDe1gTygvX88eCSVw2JI-KtP16lVDowGXQiL9Nzm/exec';
+const SCRIPT_URL = import.meta.env.VITE_GOOGLE_SCRIPT_URL;
 
 export default function ContactPage() {
     const [formData, setFormData] = useState({
