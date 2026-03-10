@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Search, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import ProjectCard from '../components/Projects/ProjectCard';
 import { services } from '../data/services';
 import { allProjects, extraProjects } from '../data/projects';
@@ -115,9 +116,9 @@ export default function ProjectsPage() {
                         </div>
                         <h3 className="start-title">Lancez Votre Projet</h3>
                         <p className="start-desc">Vous avez une idée ? Construisons quelque chose d'incroyable ensemble.</p>
-                        <button className="get-in-touch-btn">
+                        <Link to="/contact" className="get-in-touch-btn">
                             Contactez-nous
-                        </button>
+                        </Link>
                     </div>
                 </div>
                 {filteredProjects.length === 0 && (
@@ -149,9 +150,9 @@ export default function ProjectsPage() {
                             </div>
                             <h3 className="start-title">Lancez Votre Projet</h3>
                             <p className="start-desc">Vous avez une idée ? Construisons quelque chose d'incroyable ensemble.</p>
-                            <button className="get-in-touch-btn">
+                            <Link to="/contact" className="get-in-touch-btn">
                                 Contactez-nous
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </div>

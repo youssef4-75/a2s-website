@@ -84,9 +84,7 @@ export default function Header() {
               À Venir
             </Link>
 
-            <Link to="/contact" className={`transition-colors text-base font-semibold tracking-wide ${showDarkText ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-black'}`}>
-              Contact
-            </Link>
+
             <Link to="/contact" className="bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-sm px-5 py-2 rounded-full hover:shadow-lg transition-all transform hover:scale-105">
               Avoir un Devis
             </Link>

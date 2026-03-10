@@ -83,7 +83,7 @@ export default function ContactPage() {
                                 </div>
                                 <div>
                                     <h3 className="font-semibold text-[#111827]">E-mail</h3>
-                                    <p className="text-sm text-[#6b7280]">contact@a2s-inpt.ma</p>
+                                    <p className="text-sm text-[#6b7280]">a2s.bureau@gmail.com</p>
                                 </div>
                             </div>
                             <div className="flex items-start space-x-3">
