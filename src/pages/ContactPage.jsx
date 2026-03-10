@@ -26,26 +26,18 @@ export default function ContactPage() {
         setErrorMsg('');
 
         try {
-            const response = await fetch(SCRIPT_URL, {
+            await fetch(SCRIPT_URL, {
                 method: 'POST',
+                mode: 'no-cors',
                 headers: {
-                    // L'utilisation de text/plain évite le blocage CORS de Google
                     'Content-Type': 'text/plain;charset=utf-8',
                 },
-                // On envoie les données formatées en JSON
                 body: JSON.stringify(formData)
             });
 
-            const result = await response.json();
-
-            // Google Apps Script renvoie souvent result ou status selon comment tu l'as codé
-            if (result.status === "success" || result.result === "success") {
-                setStatus('success');
-                // On vide le formulaire après succès
-                setFormData({ name: '', email: '', phone: '', message: '' });
-            } else {
-                throw new Error("Le script Google a renvoyé une erreur.");
-            }
+            // Avec no-cors, on ne peut pas lire la réponse — on considère le succès si aucune erreur réseau
+            setStatus('success');
+            setFormData({ name: '', email: '', phone: '', message: '' });
         } catch (error) {
             console.error("Erreur lors de la requête :", error);
             setStatus('error');
