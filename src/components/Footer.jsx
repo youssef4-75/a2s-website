@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 // N'oublie pas d'ajouter MapPin et Mail dans les imports !
 import { Linkedin, Facebook, Instagram, MapPin, Mail } from 'lucide-react'; 
-import { COMPANY_NAME, COMPANY_ADDRESS, CONTACT_EMAIL, GOOGLE_MAPS_EMBED_URL } from '../constants';
+import { COMPANY_NAME, COMPANY_ADDRESS, CONTACT_EMAIL, GOOGLE_MAPS_URL } from '../constants';
 
 export default function Footer() {
   return (
@@ -29,16 +29,7 @@ export default function Footer() {
               L'excellence au service de l'innovation. Une équipe d'étudiants de l'INPT dédiée à vos projets.
             </p>
 
-            {/* L'API Google Maps dans la première moitié */}
-            <div className="rounded-xl overflow-hidden h-48 w-full max-w-md border border-gray-800 shadow-lg">
-              <iframe
-                src={GOOGLE_MAPS_EMBED_URL}
-                className="w-full h-full"
-                title="INPT Location API"
-                style={{ border: 0 }}
-                loading="lazy"
-              ></iframe>
-            </div>
+
           </div>
 
           {/* =========================================
@@ -65,7 +56,7 @@ export default function Footer() {
               <div className="space-y-4 text-gray-400">
                 <div className="flex items-start gap-3">
                   <MapPin className="text-cyan-400 flex-shrink-0 mt-1" size={20} />
-                  <p className="text-sm">{COMPANY_ADDRESS}</p>
+                  <a href={GOOGLE_MAPS_URL} target="_blank" rel="noopener noreferrer" className="text-sm hover:text-white transition-colors">{COMPANY_ADDRESS}</a>
                 </div>
                 <div className="flex items-start gap-3">
                   <Mail className="text-cyan-400 flex-shrink-0 mt-1" size={20} />

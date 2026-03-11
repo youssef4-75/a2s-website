@@ -84,7 +84,7 @@ export default function ContactPage() {
                                 </div>
                                 <div>
                                     <h3 className="font-semibold text-[#111827]">Téléphone</h3>
-                                    <p className="text-sm text-[#6b7280]">+212 537 777 777</p>
+                                    <p className="text-sm text-[#6b7280]">+212 607 786 226</p>
                                 </div>
                             </div>
                         </div>
