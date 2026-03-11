@@ -1,4 +1,4 @@
-// All projects data
+/* // All projects data
 export const allProjects = [
   {
     slug: "jumeau-numerique-ocp",
@@ -123,3 +123,7 @@ export const extraProjects = [
     technologies: ["Astro", "Tailwind CSS", "Vercel", "Cloudinary"],
   },
 ];
+*/
+
+export const allProjects = [];
+export const extraProjects = [];

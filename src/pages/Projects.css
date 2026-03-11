@@ -1,14 +1,14 @@
 /* Projects.css */
 
-/* --- variables for A2S colors --- */
+/* --- variables for A2S colors (aligned with À Propos section) --- */
 :root {
-    --primary-blue: #1e54c6;
-    --primary-dark: #1642a8;
+    --primary-blue: #2563eb;
+    --primary-dark: #1d4ed8;
     --text-dark: #111827;
     --text-grey: #6b7280;
     --bg-light: #f9fafb;
-    --gradient-start: #1e54c6;
-    --gradient-end: #1642a8;
+    --gradient-start: #2563eb;
+    --gradient-end: #1d4ed8;
 }
 
 /* --- Animations --- */
@@ -61,7 +61,7 @@
 /* --- Common Wrappers --- */
 .projects-page {
     min-height: 100vh;
-    background-color: white;
+    background-color: #f9fafb;
 }
 
 .projects-container {
