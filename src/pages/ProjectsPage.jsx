@@ -111,7 +111,7 @@ export default function ProjectsPage() {
                     </div>
                 </div>
                 {filteredProjects.length === 0 && (
-                    <p className="text-slate-400 text-center py-12 text-lg">Aucun projet trouvé pour ce filtre.</p>
+                    <p className="text-slate-400 text-center py-12 text-lg">Cette page va être disponible bientôt.</p>
                 )}
             </section>
         </div>
