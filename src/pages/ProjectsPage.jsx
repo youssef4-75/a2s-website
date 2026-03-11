@@ -50,12 +50,12 @@ export default function ProjectsPage() {
             {/* Main Section: Only filtered projects */}
             <section className="projects-container">
                 <div className="projects-header-section">
-                    <div>
-                        <h1 className="projects-title-main">
-                            NOS DERNIERS PROJETS
+                    <div className="w-full text-center">
+                        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                            Nos Derniers Projets
                         </h1>
-                        <p className="projects-subtitle">
-                            Bienvenue chez Actions , Services et Solutions. Ici, l'élite étudiante de l'INPT transforme la théorie en produits technologiques complets. Explorez nos réalisations récentes
+                        <p className="text-gray-600 text-lg mb-10">
+                            Bienvenue chez Actions, Services et Solutions. Ici, l'élite étudiante de l'INPT transforme la théorie en produits technologiques complets. Explorez nos réalisations récentes.
                         </p>
                     </div>
                 </div>

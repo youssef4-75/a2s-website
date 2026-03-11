@@ -61,7 +61,7 @@
 /* --- Common Wrappers --- */
 .projects-page {
     min-height: 100vh;
-    background-color: #f9fafb;
+    background: linear-gradient(to bottom right, #f9fafb, #eff6ff);
 }
 
 .projects-container {
