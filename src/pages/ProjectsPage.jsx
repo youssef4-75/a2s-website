@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Search, ArrowRight } from 'lucide-react';
+import { Search } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import ProjectCard from '../components/Projects/ProjectCard';
 import { services } from '../data/services';
-import { allProjects, extraProjects } from '../data/projects';
+import { allProjects } from '../data/projects';
 import './Projects.css';
 
 
@@ -20,11 +20,9 @@ export default function ProjectsPage() {
     // Filter + Search Logic
     useEffect(() => {
         let results = allProjects;
-
         if (activeFilter !== 'all') {
             results = results.filter(p => p.serviceId === activeFilter);
         }
-
         if (searchTerm) {
             const term = searchTerm.toLowerCase();
             results = results.filter(p =>
@@ -32,17 +30,8 @@ export default function ProjectsPage() {
                 p.category.toLowerCase().includes(term)
             );
         }
-
         setFilteredProjects(results);
     }, [searchTerm, activeFilter]);
-
-    // Scroll Handler
-    const scrollToProjects = () => {
-        const section = document.getElementById('more-projects');
-        if (section) {
-            section.scrollIntoView({ behavior: 'smooth' });
-        }
-    };
 
     return (
         <div className="projects-page">
@@ -124,38 +113,6 @@ export default function ProjectsPage() {
                 {filteredProjects.length === 0 && (
                     <p className="text-slate-400 text-center py-12 text-lg">Aucun projet trouvé pour ce filtre.</p>
                 )}
-            </section>
-
-            {/* Bottom Section: Extra projects (not tied to services) */}
-            <section id="more-projects" className="more-projects-section">
-                <div className="projects-container">
-                    <div className="section-header">
-                        <h2 className="section-title">PLUS DE PROJETS</h2>
-                    </div>
-
-                    <div className="projects-grid">
-                        {extraProjects.map((project, index) => (
-                            <ProjectCard
-                                key={project.slug}
-                                {...project}
-                                link={`/projects/${project.slug}`}
-                                className={`delay-${(index % 3) * 100 + 100}`}
-                            />
-                        ))}
-
-                        {/* CTA Card */}
-                        <div className="start-project-card">
-                            <div className="plus-icon-circle">
-                                +
-                            </div>
-                            <h3 className="start-title">Lancez Votre Projet</h3>
-                            <p className="start-desc">Vous avez une idée ? Construisons quelque chose d'incroyable ensemble.</p>
-                            <Link to="/contact" className="get-in-touch-btn">
-                                Contactez-nous
-                            </Link>
-                        </div>
-                    </div>
-                </div>
             </section>
         </div>
     );
