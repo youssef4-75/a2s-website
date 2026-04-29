@@ -83,9 +83,14 @@ export default function Header() {
               className={`transition-colors text-base font-semibold tracking-wide ${showDarkText ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-black'}`}>
               À Venir
             </Link>
-
-
-            <Link to="/contact" className="bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-sm px-5 py-2 rounded-full hover:shadow-lg transition-all transform hover:scale-105">
+ <Link
+              to="/Contact"
+              className={`text-base px-6 py-2 rounded-full font-bold transition-all duration-300 transform hover:scale-105 flex items-center justify-center min-w-[160px] min-h-[36px] whitespace-nowrap ${
+                isHomePage && !scrolled
+                  ? 'bg-[#00B6FF] text-white shadow-[0_2px_8px_0_rgba(0,0,0,0.08)] hover:bg-blue-600 hover:shadow-[0_4px_16px_0_rgba(0,182,255,0.24)]'
+                  : 'border-2 border-blue-600 text-blue-600 bg-transparent hover:bg-blue-50 hover:text-blue-700 hover:border-blue-700'
+              }`}
+            >
               Avoir un Devis
             </Link>
             <Link
